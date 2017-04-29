@@ -14,6 +14,5 @@
 #include "coleccion.h"
 
 coleccion::coleccion() {
-    
 }
 
