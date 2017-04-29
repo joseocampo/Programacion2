@@ -29,7 +29,7 @@ universidad::universidad(const universidad& copia){
     _direccion = copia._direccion;
     _telefono = copia._telefono;
     listaEscuelas = new lista();
-    coleccion *escuelas = copia.listaEscuelas;
+    coleccion *escuelas = copia.listaEscuelas; // ESTA LINEA DE CODIGO ES PARA EVITAR EL ENCADENAMIENTO
     iterador *ite = escuelas->obtenerIterador();
     while(ite->masElementos()){
         auxiliar = ite->proximoElemento();
