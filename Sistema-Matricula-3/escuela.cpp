@@ -12,17 +12,20 @@
  */
 #include "escuela.h"
 
-escuela::escuela(string nombre):_nombre(nombre),listaCursos(new lista()) {
+escuela::escuela(string nombre):_nombre(nombre),listaCursos(new lista()),listaProfesores(new lista()) {
     
 }
 escuela::escuela(const escuela& copia){
     _nombre = copia._nombre;
+    
     listaCursos = new lista();
     coleccion *cursos = copia.listaCursos;
+    
     iterador *ite = cursos->obtenerIterador();
+    
     while(ite->masElementos()){
         curso *cursoAuxiliar = (curso*)ite->proximoElemento();
-        listaCursos->agregarObjeto(new curso(cursoAuxiliar->obtenerNombre(),cursoAuxiliar->obtenerSigla()));
+        listaCursos->agregarObjeto(new curso(    )     );
         
     }
     
@@ -72,9 +75,10 @@ string escuela::verCursos() const{
 }
 objeto* escuela::obtenerCurso(string sigla)const{
     iterador *ite = listaCursos->obtenerIterador();
+    curso *cursoAuxiliar = NULL;
     while(ite->masElementos()){
-        curso *cursoAuxiliar = (curso*)ite->proximoElemento();
-        if(cursoAuxiliar != 0){
+        cursoAuxiliar = (curso*)ite->proximoElemento();
+        if(cursoAuxiliar){
             if(cursoAuxiliar->obtenerSigla() == sigla){
                 return cursoAuxiliar;
                 
@@ -94,4 +98,24 @@ string escuela::verCursosSinDetalles() const{
     return x.str();
 }
 
+void escuela::asignarProfesor(string nombre, string apellido1, string apellido2, string cedula){
+//    objeto *profesor = new profesor(nombre,apellido1,apellido2,cedula);
+//    listaProfesores->agregarObjeto(profesor);
+    
+    
+}
+objeto* escuela::buscarProfesorPorCedula(string cedula) const{
+    
+    iterador *iteradorProfesor = listaProfesores->obtenerIterador();
+    profesor *profesorAuxiliar =NULL;
+    while(iteradorProfesor->masElementos()){
+        profesorAuxiliar = (profesor*)iteradorProfesor->proximoElemento();
+        if(profesorAuxiliar){
+            if(profesorAuxiliar->obtenerId() == cedula){
+                return profesorAuxiliar;
+            }
+        }
+    }
+    return NULL;
+}
 

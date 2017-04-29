@@ -21,8 +21,11 @@
 using namespace std;
 class curso : public objeto{
 public:
-    curso(string ="",string ="");
+    curso(string ="",string ="",int =0);
     virtual ~curso();
+    curso(const curso&);
+    curso& operator=(const curso&);
+    
     virtual void asignarNombre(string);
     virtual string obtenerNombre() ;
     virtual string obtenerSigla() ;
@@ -32,7 +35,7 @@ public:
 private:
     string _nombre;
     string _sigla;
-    //int numero creditos;
+    int _creditos;
     coleccion* listaProfesores;
 
 };

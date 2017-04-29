@@ -14,8 +14,19 @@
 #include "curso.h"
 #include "profesor.h"
 
-curso::curso(string sigla,string nombre):_sigla(sigla), _nombre(nombre), listaProfesores(new lista()) {
+curso::curso(string sigla,string nombre,int creditos):_sigla(sigla), _nombre(nombre),_creditos(creditos), listaProfesores(new lista()) {
 }
+curso::curso(const curso& copia){
+    _nombre = copia._nombre;
+    _sigla = copia._sigla;
+    _creditos = copia._creditos;
+    
+}
+
+
+
+
+
 void curso::asignarNombre(string nombre){this->_nombre = nombre;}
 string curso::obtenerNombre() {return this->_nombre;}
 string curso::obtenerSigla() {return this->_sigla;}
@@ -34,9 +45,10 @@ void curso::asignarProfesor(string nombre,string id){
 
 objeto* curso::obtenerProfesor(string id)const{
     iterador *ite = listaProfesores->obtenerIterador();
+    profesor *profesorAuxiliar = NULL;
     while(ite->masElementos()){
-        profesor *profesorAuxiliar = dynamic_cast<profesor*>(ite->proximoElemento());
-        if(profesorAuxiliar != 0){
+        profesorAuxiliar = dynamic_cast<profesor*>(ite->proximoElemento());
+        if(profesorAuxiliar){
             if(profesorAuxiliar->obtenerId() == id){
                 return profesorAuxiliar;
                 

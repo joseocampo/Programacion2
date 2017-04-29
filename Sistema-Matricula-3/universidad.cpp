@@ -29,7 +29,9 @@ universidad::universidad(const universidad& copia){
     _direccion = copia._direccion;
     _telefono = copia._telefono;
     listaEscuelas = new lista();
+    
     coleccion *escuelas = copia.listaEscuelas; // ESTA LINEA DE CODIGO ES PARA EVITAR EL ENCADENAMIENTO
+    
     iterador *ite = escuelas->obtenerIterador();
     while(ite->masElementos()){
         auxiliar = ite->proximoElemento();
@@ -77,7 +79,7 @@ string universidad::toString()const{
 
 void universidad::asignarEscuelas(string nombre)
 { 
-//    _escuelas->insertarObjeto(escuela1);
+
     objeto* _escuela = new escuela(nombre);
     listaEscuelas->agregarObjeto(_escuela);
 }
@@ -108,11 +110,13 @@ string universidad::verEscuelasConCursos() const{
     }
     return x.str();
 }
+
 objeto* universidad::obtenerEscuela(string nombre)const{
     iterador *ite = listaEscuelas->obtenerIterador();
+    escuela *escuelaAuxiliar = NULL;
     while(ite->masElementos()){
-        escuela *escuelaAuxiliar = dynamic_cast<escuela*>(ite->proximoElemento());
-        if(escuelaAuxiliar != 0){
+        escuelaAuxiliar = dynamic_cast<escuela*>(ite->proximoElemento());
+        if(escuelaAuxiliar){
             if(escuelaAuxiliar->obtenerNombre() == nombre){
                 return escuelaAuxiliar;
                 
@@ -120,8 +124,5 @@ objeto* universidad::obtenerEscuela(string nombre)const{
         }
     }
     return NULL;
-    int x = 7;
-    if(x > 7){
-        cout<<"Didier"<<endl;
-    }
+    
 }
