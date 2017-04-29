@@ -15,5 +15,7 @@
 
 
 coleccion::coleccion() {
+    
+    //Probando si la wea sirve
 }
 
