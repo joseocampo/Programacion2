@@ -27,8 +27,10 @@ public:
     curso& operator=(const curso&);
     
     virtual void asignarNombre(string);
-    virtual string obtenerNombre() ;
-    virtual string obtenerSigla() ;
+    virtual void asignarCreditos(int);
+    virtual string obtenerNombre() const;
+    virtual string obtenerSigla() const;
+    virtual int obtenerCreditos() const;
     virtual string toString() const;
     virtual void asignarProfesor(string,string);
     virtual objeto* obtenerProfesor(string) const;

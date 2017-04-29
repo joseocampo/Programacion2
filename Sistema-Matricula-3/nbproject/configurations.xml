@@ -7,6 +7,9 @@
       <itemPath>coleccion.h</itemPath>
       <itemPath>curso.h</itemPath>
       <itemPath>escuela.h</itemPath>
+      <itemPath>estudiante.h</itemPath>
+      <itemPath>estudianteBecado.h</itemPath>
+      <itemPath>estudianteNoBecado.h</itemPath>
       <itemPath>interfaz.h</itemPath>
       <itemPath>iterador.h</itemPath>
       <itemPath>lista.h</itemPath>
@@ -25,6 +28,9 @@
       <itemPath>coleccion.cpp</itemPath>
       <itemPath>curso.cpp</itemPath>
       <itemPath>escuela.cpp</itemPath>
+      <itemPath>estudiante.cpp</itemPath>
+      <itemPath>estudianteBecado.cpp</itemPath>
+      <itemPath>estudianteNoBecado.cpp</itemPath>
       <itemPath>interfaz.cpp</itemPath>
       <itemPath>iterador.cpp</itemPath>
       <itemPath>lista.cpp</itemPath>
@@ -67,6 +73,18 @@
       <item path="escuela.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="escuela.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="estudiante.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="estudiante.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="estudianteBecado.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="estudianteBecado.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="estudianteNoBecado.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="estudianteNoBecado.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="interfaz.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -130,6 +148,18 @@
       <item path="escuela.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="escuela.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="estudiante.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="estudiante.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="estudianteBecado.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="estudianteBecado.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="estudianteNoBecado.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="estudianteNoBecado.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="interfaz.cpp" ex="false" tool="1" flavor2="0">
       </item>

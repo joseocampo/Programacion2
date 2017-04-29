@@ -28,13 +28,18 @@ curso::curso(const curso& copia){
 
 
 void curso::asignarNombre(string nombre){this->_nombre = nombre;}
+void curso::asignarNombre(int numeroCreditos){this->_creditos = numeroCreditos;}
+
 string curso::obtenerNombre() {return this->_nombre;}
 string curso::obtenerSigla() {return this->_sigla;}
 string curso::toString() const{
     stringstream x;
     x<<"Curso: "<<this->_nombre<<endl;
     x<<"Sigla: "<<this->_sigla<<endl<<endl;
+    x<<"Creditos: "<<this->_creditos<<endl;
+//    x<<"Profesor: "<<
     return x.str();
+    
 }
 
 
