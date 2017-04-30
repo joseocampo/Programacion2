@@ -13,9 +13,11 @@
 
 #ifndef PROFESOR_H
 #define PROFESOR_H
-//#include "objeto.h"
-//#include "lista.h"
-#include "curso.h"
+#include "objeto.h"
+#include "lista.h"
+class curso;
+
+
 
 class profesor :public objeto{
 public:
@@ -25,9 +27,11 @@ public:
     virtual string obtenerNombre();
     virtual void asignarId(string);
     virtual string obtenerId();
-    virtual void asignarCurso(string,string);
+    virtual void asignarCurso(curso*);
     virtual objeto* obtenerCurso(string) const;
+    virtual string verCursos()const;
     virtual string toString() const;
+    virtual void eliminarCurso(string);
 private:
     string nombre;
     string id;

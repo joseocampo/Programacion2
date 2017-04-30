@@ -237,6 +237,144 @@ void sistema::iniciarSistema(){
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
             system("cmd /c pause");
             
+            
+            
+        }break;
+        case 11:{
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+            system("cmd /c cls");
+            string nombreEscuela; 
+            cout<<_universidad->verEscuelasSinDetalles()<<"\n";
+            cout<<"INGRESE NOMBRE DE LA ESCUELA A LA QUE DESEA AGREGAR EL PROFESOR: ";
+            cin>>nombreEscuela;
+           
+
+            objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
+            escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
+            if(escuelaAuxiliar){
+                
+            cout<<"LA ESCUELA BUSCADA ES: "<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
+
+            escuelaAuxiliar->asignarProfesor(_interfaz->solicitarNombreProfesor(),_interfaz->solicitarIdProfesor());
+            
+            }else{
+                cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
+            }
+
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            system("cmd /c pause");
+
+        
+        }break;
+        case 12:{
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+            system("cmd /c cls");
+            
+
+            string nombreEscuela, idProfe,nuevoNombre;
+            cout<<_universidad->verEscuelasSinDetalles()<<"\n";
+            cout<<"INGRESE NOMBRE DE LA ESCUELA EN LA QUE DESEA MODIFICAR EL NOMBRE DE UN PROFESOR: ";
+            cin>>nombreEscuela;
+            objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
+            escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
+            
+            if(escuelaAuxiliar){
+            cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
+            cout<<escuelaAuxiliar->verCursosSinDetalles()<<endl;
+
+            cout<<"INGRESE EL ID DEL PROFESOR A MODIFICAR: ";
+            cin>>idProfe;
+            objeto *objetoCurso = escuelaAuxiliar->buscarProfesorPorCedula(idProfe);
+            profesor *profesorAuxiliar = (profesor*)objetoCurso;
+            if(profesorAuxiliar){
+                cout<<"EL PROFESOR A MODIFICAR ES:\n"<<profesorAuxiliar->toString();
+                cout<<"\n\nINGRESE EL NUEVO NOMBRE NOMBRE PARA EL PROFESOR: ";
+                cin>>nuevoNombre;
+                profesorAuxiliar->asignarNombre(nuevoNombre);
+                cout<<"PROFESOR MODIFICADO:\n "<<profesorAuxiliar->toString()<<endl<<endl;
+            }else{
+                 cout<<"EL PROFESOR QUE BUSCA NO EXISTE"<<endl;
+            }
+            
+   
+            }else{
+                cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
+            }
+           
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            system("cmd /c pause");
+                
+        
+            
+        
+        }break;
+        case 13:{
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+            system("cmd /c cls");
+            
+
+            string nombreEscuela, idProfe,nuevoNombre;
+            cout<<_universidad->verEscuelasSinDetalles()<<"\n";
+            cout<<"INGRESE NOMBRE DE LA ESCUELA EN LA QUE DESEA BUSCAR EL PROFESOR: ";
+            cin>>nombreEscuela;
+            objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
+            escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
+            
+            if(escuelaAuxiliar){
+            cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
+
+            cout<<"INGRESE EL ID DEL PROFESOR: ";
+            cin>>idProfe;
+            objeto *objetoCurso = escuelaAuxiliar->buscarProfesorPorCedula(idProfe);
+            profesor *profesorAuxiliar = (profesor*)objetoCurso;
+            if(profesorAuxiliar){
+                cout<<profesorAuxiliar->toString();
+            }else{
+                 cout<<"EL PROFESOR QUE BUSCA NO EXISTE"<<endl;
+            }
+            
+   
+            }else{
+                cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
+            }
+           
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            system("cmd /c pause");
+                
+        
+            
+        
+        }break;
+        case 14:{
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+            system("cmd /c cls");
+            
+
+            string nombreEscuela, idProfe,nuevoNombre;
+            cout<<_universidad->verEscuelasSinDetalles()<<"\n";
+            cout<<"INGRESE NOMBRE DE LA ESCUELA EN LA QUE DESEA CONSULTAR LA LISTA DE PROFESORES: ";
+            cin>>nombreEscuela;
+            objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
+            escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
+            
+            if(escuelaAuxiliar){
+            cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
+            
+
+            cout<<escuelaAuxiliar->verProfesores();
+            
+            
+   
+            }else{
+                cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
+            }
+           
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            system("cmd /c pause");
+                
+            
+            
+        
         }break;
         
         default:{
@@ -268,4 +406,8 @@ sistema::~sistema() {
     delete _universidad;
     delete _interfaz;
 }
+
+
+
+
 

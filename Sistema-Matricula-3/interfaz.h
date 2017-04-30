@@ -30,6 +30,8 @@ public:
     string desplegarMensajeBienvenida() const;
     string solicitarNombreCurso()const;
     string solicitarSiglaCurso()const;
+    string solicitarNombreProfesor() const;
+    string solicitarIdProfesor() const;
     int desplegarMenuPrincipal() const;
     int leerint()const;
 private:

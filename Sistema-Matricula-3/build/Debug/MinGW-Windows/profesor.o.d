@@ -1,9 +1,9 @@
-build/Debug/MinGW-Windows/profesor.o: profesor.cpp profesor.h curso.h \
- lista.h coleccion.h iterador.h objeto.h
+build/Debug/MinGW-Windows/profesor.o: profesor.cpp profesor.h objeto.h \
+ lista.h coleccion.h iterador.h curso.h grupo.h vector.h
 
 profesor.h:
 
-curso.h:
+objeto.h:
 
 lista.h:
 
@@ -11,4 +11,8 @@ coleccion.h:
 
 iterador.h:
 
-objeto.h:
+curso.h:
+
+grupo.h:
+
+vector.h:

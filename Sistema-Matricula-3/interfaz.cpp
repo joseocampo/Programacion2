@@ -62,6 +62,20 @@ string interfaz::desplegarMensajeBienvenida()const{
     return x.str();
 }
 
+string interfaz::solicitarNombreProfesor() const{
+    string nombre;
+    cout<<" \nIngrese el nombre del profesor: "<< endl;
+    cin>>nombre;
+    return nombre;
+}
+
+string interfaz::solicitarIdProfesor() const{
+    string id;
+    cout<<" \nIngrese el id del profesor: "<< endl;
+    cin>>id;
+    return id;
+}
+
 int interfaz::desplegarMenuPrincipal() const{
     int opcion=0;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
@@ -71,11 +85,15 @@ int interfaz::desplegarMenuPrincipal() const{
     cout<<"     4)       CONSULTAR LISTA DE ESCUELAS DE LA UNIVERSIDAD"<<endl;
     cout<<"     5)       REGISTRAR CURSOS EN UNA ESCUELA ESPECIFICA"<<endl;
     cout<<"     6)       CONSULTAR LISTA DE CURSOS DE LA UNIVERSIDAD POR ESCUELAS"<<endl;
-    cout<<"     7)       VER TODOS LOS CURSOS IMPARTIDOS POR LAUNIVERSIDAD"<<endl;
+    cout<<"     7)       VER TODOS LOS CURSOS IMPARTIDOS POR LA UNIVERSIDAD"<<endl;
     cout<<"     8)       RECUPERAR LOS DATOS DE UN CURSO"<<endl;
     cout<<"     9)       MODIFICAR DATOS DE UN CURSO"<<endl;
     cout<<"     10)      ELIMINAR UN CURSO DE UNA ESCUELA ESPECIFICA"<<endl;
-    cout<<"     11)      SALIR"<<endl;
+    cout<<"     11)      REGISTRAR PROFESORES EN UNA ESCUELA ESPECIFICA"<<endl;
+    cout<<"     12)      MODIFICAR EL NOMBRE DE UN PROFESOR ESPECIFICO"<<endl;
+    cout<<"     13)      CONSULTAR UN PROFESOR DE UNA ESCUELA ESPECIFICA CON SU ID "<<endl;
+    cout<<"     14)      CONSULTAR LISTA DE PROFESORES DE LA UNIVERSIDAD POR ESCUELAS"<<endl;
+    cout<<"     15)      SALIR"<<endl;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     
     cout<<"\n\n"<<"         Elije la opcion que desea realizar"<<endl;

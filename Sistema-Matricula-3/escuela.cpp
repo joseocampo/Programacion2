@@ -98,24 +98,33 @@ string escuela::verCursosSinDetalles() const{
     return x.str();
 }
 //
-//void escuela::asignarProfesor(string nombre, string apellido1, string apellido2, string cedula){
-////    objeto *profesor = new profesor(nombre,apellido1,apellido2,cedula);
-////    listaProfesores->agregarObjeto(profesor);
-//    
-//    
-//}
-//objeto* escuela::buscarProfesorPorCedula(string cedula) const{
-//    
-//    iterador *iteradorProfesor = listaProfesores->obtenerIterador();
-//    profesor *profesorAuxiliar =NULL;
-//    while(iteradorProfesor->masElementos()){
-//        profesorAuxiliar = (profesor*)iteradorProfesor->proximoElemento();
-//        if(profesorAuxiliar){
-//            if(profesorAuxiliar->obtenerId() == cedula){
-//                return profesorAuxiliar;
-//            }
-//        }
-//    }
-//    return NULL;
-//}
+void escuela::asignarProfesor(string nombre, string id){
+    objeto *_profesor = new profesor(nombre, id);
+    listaProfesores->agregarObjeto(_profesor);
+    
+    
+}
+objeto* escuela::buscarProfesorPorCedula(string cedula) const{
+    
+    iterador *iteradorProfesor = listaProfesores->obtenerIterador();
+    profesor *profesorAuxiliar =NULL;
+    while(iteradorProfesor->masElementos()){
+        profesorAuxiliar = (profesor*)iteradorProfesor->proximoElemento();
+        if(profesorAuxiliar){
+            if(profesorAuxiliar->obtenerId() == cedula){
+                return profesorAuxiliar;
+            }
+        }
+    }
+    return NULL;
+}
 
+string escuela::verProfesores() const{
+    stringstream x;
+    x<<"\n______________________________________________________\n";
+    x<<"\n\nProfesores Asociados a "<<escuela::toString()<<endl;
+    x<<listaProfesores->toString()<<endl<<endl;
+    x<<"\n______________________________________________________\n";
+    
+    return x.str();
+}

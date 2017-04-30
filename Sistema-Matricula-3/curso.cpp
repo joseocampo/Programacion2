@@ -23,6 +23,7 @@ curso::curso(string sigla,string nombre,int creditos):_sigla(sigla), _nombre(nom
 
 
 
+
 void curso::asignarNombre(string nombre){this->_nombre = nombre;}
 void curso::asignarCreditos(int numeroCreditos){this->_creditos = numeroCreditos;}
 
@@ -41,9 +42,9 @@ string curso::toString() const{
 }
 
 
-void curso::asignarProfesor(string nombre,string id){
-    objeto *_profesor = new profesor(nombre, id);
-    listaProfesores->agregarObjeto(_profesor);   //**********Agregar objetos lo deberia hacer iterador Â¿?**************
+void curso::asignarProfesor(profesor *_profesor){
+    objeto *objetoAuxiliar = dynamic_cast<objeto*>(_profesor);
+    listaProfesores->agregarObjeto(objetoAuxiliar);   
 }
 
 objeto* curso::obtenerProfesor(string id)const{
@@ -60,6 +61,39 @@ objeto* curso::obtenerProfesor(string id)const{
     }
     return NULL;
 }
+
+string curso::verProfesores() const{
+    stringstream x;
+    x<<"\n______________________________________________________\n";
+    x<<"\n\nProfesores Asociados a "<<_nombre<<endl;
+    x<<listaProfesores->toString()<<endl;
+    x<<"\n______________________________________________________\n";
+    
+    return x.str();
+}
+
+
+void curso::eliminarProfesor(string _id){
+
+ iterador *ite = listaProfesores->obtenerIterador();
+ 
+    while(ite->masElementos()){
+        profesor *profeAuxiliar = dynamic_cast<profesor*>(ite->proximoElemento());
+        if(profeAuxiliar != 0){
+            if(profeAuxiliar->obtenerId() == _id){
+                objeto *objetoAuxiliar = dynamic_cast<objeto*>(profeAuxiliar);
+                listaProfesores->eliminarObjeto(objetoAuxiliar);
+                
+            }
+        }
+    }
+
+
+}
+
+
+
+
 
 
 curso::~curso() {
