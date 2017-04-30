@@ -77,8 +77,7 @@ string universidad::toString()const{
 }
 
 
-void universidad::asignarEscuelas(string nombre)
-{ 
+void universidad::asignarEscuelas(string nombre){ 
 
     objeto* _escuela = new escuela(nombre);
     listaEscuelas->agregarObjeto(_escuela);

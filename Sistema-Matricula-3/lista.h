@@ -20,6 +20,9 @@ class lista;
 class nodo;
 class iteradorLista;
 
+
+
+//DEFINICION DE LA CLASE LISTA
 class lista : public coleccion {
 public:
     lista();
@@ -28,12 +31,12 @@ public:
     virtual void agregarObjeto(objeto*);
     virtual iterador* obtenerIterador() const;
     virtual void eliminarObjeto(objeto*);
-    virtual std::string toString() const;
+    virtual string toString() const;
 
 private:
     nodo* primero;
 };
-
+//DEFINICION DE LA CLASE NODO
 class nodo {
 public:
     nodo(nodo*, objeto*);
@@ -45,7 +48,7 @@ private:
     nodo* _siguiente;
     objeto* _info;
 };
-
+//DEFINICION DE LA CLASE ITERADORLISTA
 class iteradorLista : public iterador {
 public:
     iteradorLista(nodo*);
@@ -57,6 +60,7 @@ public:
 private:
     nodo* cursor;
 };
+
 
 #endif /* LISTA_H */
 

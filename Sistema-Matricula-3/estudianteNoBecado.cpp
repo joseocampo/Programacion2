@@ -22,4 +22,4 @@ double estudianteNoBecado::calcularPagoCreditos(){
 
 estudianteNoBecado::~estudianteNoBecado() {
 }
-
+string estudianteNoBecado::toString() const{}

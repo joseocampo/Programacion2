@@ -27,7 +27,7 @@ public:
 private:
     universidad *_universidad;
     interfaz *_interfaz;
-    virtual string mostrar() const ;
+    
 
 };
 

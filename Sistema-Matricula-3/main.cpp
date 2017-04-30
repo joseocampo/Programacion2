@@ -12,13 +12,32 @@
  */
 
 #include <cstdlib>
-#include"sistema.h"
+//#include"sistema.h"
+#include"estudiante.h"
+#include "vector.h"
 using namespace std;
-
+#include<iostream>
 /*
  * 
  */
 int main(int argc, char** argv) {
+    cout<<"Hola";
+    coleccion *estud = new vector();
+    objeto *e1 = new estudiante("DIDIER","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
+    objeto *e2 = new estudiante("JOSE","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
+    objeto *e3 = new estudiante("BOB","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
+    objeto *e4 = new estudiante("WEIN","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
+    
+    
+    estud->agregarObjeto(e1);
+    estud->agregarObjeto(e2);
+    estud->agregarObjeto(e3);
+    estud->agregarObjeto(e4);
+    
+    cout<<estud->toString()<<endl;
+    
+    iterador *ite = estud->obtenerIterador();
+    
 //    universidad *uni = new universidad("UNA");
 //    
 //    
@@ -51,9 +70,9 @@ int main(int argc, char** argv) {
 //    
 //    cout<<uni->verEscuelasSinDetalles();
 //    
-//    
-    sistema *sistema1 = new sistema();
-    sistema1->iniciarSistema();
+////    
+//    sistema *sistema1 = new sistema();
+//    sistema1->iniciarSistema();
     
     
 

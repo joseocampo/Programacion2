@@ -55,16 +55,14 @@ string interfaz::solicitarSiglaCurso() const{
     return sigla;
 }
 
-string interfaz::desplegarMensajeBienvenida()const
-{
+string interfaz::desplegarMensajeBienvenida()const{
     stringstream x;
     x<<"    \nBIENVENIDOS AL SISTEMA DE MATRICULA\n";
     
     return x.str();
 }
 
-int interfaz::desplegarMenuPrincipal() const
-{
+int interfaz::desplegarMenuPrincipal() const{
     int opcion=0;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
     cout<<"\n\n"<<"     1)       INCLUIR DATOS DE LA UNIVERSIDAD"<<endl;

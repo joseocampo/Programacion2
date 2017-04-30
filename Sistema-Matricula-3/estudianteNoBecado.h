@@ -19,6 +19,7 @@ public:
     estudianteNoBecado(string,string,string,string,string,string,float);
     virtual double calcularPagoCreditos();
     virtual ~estudianteNoBecado();
+    virtual string toString()const ;
 private:
 
 };

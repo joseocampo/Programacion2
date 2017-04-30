@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=MinGW-Windows
+CND_PLATFORM=Cygwin-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Release
 CND_DISTDIR=dist
@@ -48,7 +48,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/objeto.o \
 	${OBJECTDIR}/profesor.o \
 	${OBJECTDIR}/sistema.o \
-	${OBJECTDIR}/universidad.o
+	${OBJECTDIR}/universidad.o \
+	${OBJECTDIR}/vector.o
 
 
 # C Compiler Flags
@@ -144,6 +145,11 @@ ${OBJECTDIR}/universidad.o: universidad.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/universidad.o universidad.cpp
+
+${OBJECTDIR}/vector.o: vector.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/vector.o vector.cpp
 
 # Subprojects
 .build-subprojects:

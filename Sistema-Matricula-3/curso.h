@@ -17,23 +17,20 @@
 #include<sstream>
 //#include "objeto.h"
 #include "lista.h"
-#include "profesor.h"
+//#include "profesor.h"
 using namespace std;
 class curso : public objeto{
 public:
     curso(string ="",string ="",int =0);
     virtual ~curso();
-    curso(const curso&);
-    curso& operator=(const curso&);
-    
     virtual void asignarNombre(string);
     virtual void asignarCreditos(int);
     virtual string obtenerNombre() const;
     virtual string obtenerSigla() const;
     virtual int obtenerCreditos() const;
     virtual string toString() const;
-    virtual void asignarProfesor(string,string);
-    virtual objeto* obtenerProfesor(string) const;
+//    virtual void asignarProfesor(string,string);
+//    virtual objeto* obtenerProfesor(string) const;
 private:
     string _nombre;
     string _sigla;

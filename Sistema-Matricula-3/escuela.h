@@ -30,8 +30,8 @@ public:
     virtual string verCursosSinDetalles()const;
     virtual objeto* obtenerCurso(string) const;
     virtual void eliminarCurso(objeto*);
-    virtual void asignarProfesor(string,string,string,string);
-    virtual objeto* buscarProfesorPorCedula(string) const;
+//    virtual void asignarProfesor(string,string,string,string);
+//    virtual objeto* buscarProfesorPorCedula(string) const;
     
 private:
      string  _nombre;

@@ -20,9 +20,9 @@ public:
     virtual int numElementos() const = 0;
     virtual void agregarObjeto(objeto*) = 0;
     virtual iterador* obtenerIterador() const = 0;
-    virtual void eliminarObjeto(objeto*) = 0;
+    virtual void eliminarObjeto(objeto*) =0;
 
-    virtual std::string toString() const =0;
+    virtual string toString() const =0;
 };
 
 

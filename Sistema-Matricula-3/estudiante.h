@@ -20,21 +20,22 @@ public:
     virtual ~estudiante();
     virtual double calcularPagoCreditos();
     virtual string toString()const ;
-    virtual string obtenerNombre()const;
-    virtual string obtenerApellido1()const;
-    virtual string obtenerApellido2()const;
-    virtual string obtenerCedula()const;
-    virtual string obtenerCarnet()const;
-    virtual string obtenerNacionalidad()const;
-    
-    
-    virtual void asignarNombre(string);
-    virtual void asignarApellido1(string);
-    virtual void asignarApellido2(string);
-    virtual void asignarCedula(string);
-    virtual void asignarCarnet(string);
-    virtual void asignarNacionalidad(string);
-    virtual void asignarPorcentajeBeca(string);
+//    
+//    virtual string obtenerNombre()const;
+//    virtual string obtenerApellido1()const;
+//    virtual string obtenerApellido2()const;
+//    virtual string obtenerCedula()const;
+//    virtual string obtenerCarnet()const;
+//    virtual string obtenerNacionalidad()const;
+//    
+//    
+//    virtual void asignarNombre(string);
+//    virtual void asignarApellido1(string);
+//    virtual void asignarApellido2(string);
+//    virtual void asignarCedula(string);
+//    virtual void asignarCarnet(string);
+//    virtual void asignarNacionalidad(string);
+//    virtual void asignarPorcentajeBeca(float);
 private:
     string _nombre;
     string _apellido1;

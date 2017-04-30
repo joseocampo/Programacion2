@@ -15,7 +15,7 @@
 using namespace std;
 
 #include "lista.h"
-
+//IMPLEMETACION DE LA CLASE LISTA
 lista::lista() : primero(NULL) {
 }
 
@@ -77,6 +77,7 @@ void lista::eliminarObjeto(objeto* obj){
         }
 	delete cursor;
 }
+//IMPLEMETACION DE LA CLASE NODO
 nodo::nodo(nodo* siguiente, objeto* info)
 : _siguiente(siguiente), _info(info) {
 }
@@ -92,7 +93,7 @@ void nodo::fijarSiguiente(nodo* siguiente) {
 objeto* nodo::info() const {
     return _info;
 }
-
+//IMPLEMETACION DE LA CLASE ITERADORLISTA
 iteradorLista::iteradorLista(nodo* primero) : cursor(primero) {
 }
 
@@ -105,4 +106,3 @@ objeto* iteradorLista::proximoElemento() {
     cursor = cursor->siguiente();
     return obj;
 }
-
