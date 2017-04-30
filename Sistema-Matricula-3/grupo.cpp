@@ -14,7 +14,7 @@
 #include "grupo.h"
 #include "coleccion.h"
 
-grupo::grupo():_arreglo(new vector()) {
+grupo::grupo():_arreglo(new vector()){
 }
 void grupo::agregarEstudiante(objeto* estudianteX){
      _arreglo->agregarObjeto(estudianteX);

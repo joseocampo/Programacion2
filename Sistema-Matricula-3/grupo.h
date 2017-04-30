@@ -13,8 +13,8 @@
 
 #ifndef GRUPO_H
 #define GRUPO_H
+#include"vector.h"
 
-#include"coleccion.h"
 class grupo :public objeto{
 public:
     grupo();
@@ -22,7 +22,7 @@ public:
     virtual void agregarEstudiante(objeto*);
     
 private:
-    coleccion** _arreglo;
+    coleccion* _arreglo;
     
 
 };
