@@ -22,7 +22,7 @@ vector::vector():_cantidad(0),_estudiantes(new objeto*[TAMANO]) {
 int vector::obtenerCantidad() const{return this->_cantidad;}
 int vector::numElementos() const{
     int contador =0;
-    for(int i=0; i<TAMANO; i){
+    for(int i=0; i<TAMANO; i++){
         if(_estudiantes[i]){
             contador++;
         }
@@ -38,12 +38,10 @@ void vector::agregarObjeto(objeto* estu){
     
 }
 iterador* vector::obtenerIterador() const{
-    return new iteradorVector();
+    return new iteradorVector(_estudiantes);
     
 }
-objeto** vector::obtenerVector() const{
-    return _estudiantes;
-}
+
 vector::~vector() {
 }
 string vector::toString() const{
@@ -62,19 +60,19 @@ const int vector::TAMANO = 30;
 
 
 //IMPLEMETACION DE LA CLASE ITERADORVECTOR
-iteradorVector::iteradorVector( ):cursor( 0){
+iteradorVector::iteradorVector( objeto** arreglo ):cursor(0),_arreglo(arreglo){
 
 }
 bool iteradorVector::masElementos() const{
-    vector *aux;
-    objeto **arreglo = aux->obtenerVector();
-    return (arreglo[cursor]);
+    
+ 
+    return (_arreglo[cursor]);
     
 }
 objeto* iteradorVector::proximoElemento( ){
-    vector *aux;
-    objeto **arreglo = aux->obtenerVector();
-    objeto* auxiliar = arreglo[cursor];
-    cursor++;
+    
+    
+    objeto* auxiliar = _arreglo[cursor++];
+//    cursor++;
     return auxiliar;
 }

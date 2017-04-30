@@ -24,7 +24,6 @@ public:
     virtual void agregarObjeto(objeto*);
     virtual iterador* obtenerIterador() const;
     virtual ~vector();
-    virtual objeto** obtenerVector() const ;
      virtual void eliminarObjeto(objeto*) ;
     virtual string toString() const;
     virtual int obtenerCantidad()const;
@@ -40,7 +39,7 @@ private:
 //DEFINICION DE LA CLASE ITERADORVECTOR
 class iteradorVector : public iterador {
 public:
-    iteradorVector();
+    iteradorVector(objeto**);
 
     virtual bool masElementos() const;
     virtual objeto* proximoElemento();
@@ -48,6 +47,7 @@ public:
 
 private:
     int cursor;
+    objeto **_arreglo;
 };
 #endif /* VECTOR_H */
 

@@ -15,9 +15,9 @@
 #define CURSO_H
 #include<iostream>
 #include<sstream>
-//#include "objeto.h"
 #include "lista.h"
-//#include "profesor.h"
+#include "profesor.h"
+#include"grupo.h"
 using namespace std;
 class curso : public objeto{
 public:
@@ -29,14 +29,16 @@ public:
     virtual string obtenerSigla() const;
     virtual int obtenerCreditos() const;
     virtual string toString() const;
-//    virtual void asignarProfesor(string,string);
-//    virtual objeto* obtenerProfesor(string) const;
+    virtual void asignarProfesor(string,string);
+    virtual objeto* obtenerProfesor(string) const;
+    
 private:
     string _nombre;
     string _sigla;
     int _creditos;
     coleccion* listaProfesores;
-
+    coleccion *listaGrupos;
+    
 };
 
 #endif /* CURSO_H */

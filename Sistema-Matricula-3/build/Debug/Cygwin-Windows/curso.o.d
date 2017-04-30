@@ -1,5 +1,5 @@
 build/Debug/Cygwin-Windows/curso.o: curso.cpp curso.h lista.h coleccion.h \
- iterador.h objeto.h profesor.h
+ iterador.h objeto.h profesor.h grupo.h
 
 curso.h:
 
@@ -12,3 +12,5 @@ iterador.h:
 objeto.h:
 
 profesor.h:
+
+grupo.h:

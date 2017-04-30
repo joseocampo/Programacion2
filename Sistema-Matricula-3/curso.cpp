@@ -14,7 +14,9 @@
 #include "curso.h"
 #include "profesor.h"
 
-curso::curso(string sigla,string nombre,int creditos):_sigla(sigla), _nombre(nombre),_creditos(creditos), listaProfesores(new lista()) {
+curso::curso(string sigla,string nombre,int creditos):_sigla(sigla), _nombre(nombre),_creditos(creditos), listaProfesores(new lista()),
+        listaGrupos(new lista())
+{
 }
 
 
@@ -39,25 +41,25 @@ string curso::toString() const{
 }
 
 
-//void curso::asignarProfesor(string nombre,string id){
-//    objeto *_profesor = new profesor(nombre, id);
-//    listaProfesores->agregarObjeto(_profesor);   //**********Agregar objetos lo deberia hacer iterador Â¿?**************
-//}
+void curso::asignarProfesor(string nombre,string id){
+    objeto *_profesor = new profesor(nombre, id);
+    listaProfesores->agregarObjeto(_profesor);   //**********Agregar objetos lo deberia hacer iterador Â¿?**************
+}
 
-//objeto* curso::obtenerProfesor(string id)const{
-//    iterador *ite = listaProfesores->obtenerIterador();
-//    profesor *profesorAuxiliar = NULL;
-//    while(ite->masElementos()){
-//        profesorAuxiliar = dynamic_cast<profesor*>(ite->proximoElemento());
-//        if(profesorAuxiliar){
-//            if(profesorAuxiliar->obtenerId() == id){
-//                return profesorAuxiliar;
-//                
-//            }
-//        }
-//    }
-//    return NULL;
-//}
+objeto* curso::obtenerProfesor(string id)const{
+    iterador *ite = listaProfesores->obtenerIterador();
+    profesor *profesorAuxiliar = NULL;
+    while(ite->masElementos()){
+        profesorAuxiliar = dynamic_cast<profesor*>(ite->proximoElemento());
+        if(profesorAuxiliar){
+            if(profesorAuxiliar->obtenerId() == id){
+                return profesorAuxiliar;
+                
+            }
+        }
+    }
+    return NULL;
+}
 
 
 curso::~curso() {

@@ -41,6 +41,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/estudiante.o \
 	${OBJECTDIR}/estudianteBecado.o \
 	${OBJECTDIR}/estudianteNoBecado.o \
+	${OBJECTDIR}/grupo.o \
 	${OBJECTDIR}/interfaz.o \
 	${OBJECTDIR}/iterador.o \
 	${OBJECTDIR}/lista.o \
@@ -105,6 +106,11 @@ ${OBJECTDIR}/estudianteNoBecado.o: estudianteNoBecado.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/estudianteNoBecado.o estudianteNoBecado.cpp
+
+${OBJECTDIR}/grupo.o: grupo.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/grupo.o grupo.cpp
 
 ${OBJECTDIR}/interfaz.o: interfaz.cpp 
 	${MKDIR} -p ${OBJECTDIR}

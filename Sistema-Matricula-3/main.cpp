@@ -27,16 +27,22 @@ int main(int argc, char** argv) {
     objeto *e2 = new estudiante("JOSE","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
     objeto *e3 = new estudiante("BOB","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
     objeto *e4 = new estudiante("WEIN","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
-    
+  
     
     estud->agregarObjeto(e1);
     estud->agregarObjeto(e2);
     estud->agregarObjeto(e3);
     estud->agregarObjeto(e4);
     
-    cout<<estud->toString()<<endl;
+//    cout<<estud->toString()<<endl;
     
     iterador *ite = estud->obtenerIterador();
+    
+    while(ite->masElementos()){
+        
+        cout<<"Elemento:\n "<<((estudiante*)ite->proximoElemento())->toString()<<endl;
+    }
+    
     
 //    universidad *uni = new universidad("UNA");
 //    

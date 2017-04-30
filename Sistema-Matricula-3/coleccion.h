@@ -9,11 +9,13 @@
  * Author: jose ocampo
  *
  * Created on 21 de abril de 2017, 03:15 PM
- */
+ */ 
+
 
 #ifndef COLECCION_H
 #define COLECCION_H
 #include "iterador.h"
+
 class coleccion{
 public:
     coleccion();
