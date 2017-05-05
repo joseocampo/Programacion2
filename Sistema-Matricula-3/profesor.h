@@ -27,7 +27,7 @@ public:
     virtual string obtenerNombre();
     virtual void asignarId(string);
     virtual string obtenerId();
-    virtual void asignarCurso(curso*);
+    virtual void asignarCurso(objeto*);
     virtual objeto* obtenerCurso(string) const;
     virtual string verCursos()const;
     virtual string toString() const;

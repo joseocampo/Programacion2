@@ -56,9 +56,10 @@ string lista::toString() const {
         }
     }
     
-    r << "}";
+    
     return r.str();
 }
+
 void lista::eliminarObjeto(objeto* obj){
     nodo* anterior = NULL;
     nodo* cursor = primero;  

@@ -17,9 +17,23 @@ estudianteNoBecado::estudianteNoBecado(string nombre,string ap1,string ap2,strin
 estudiante( nombre, ap1, ap2, carnet, cedula, nacion, porcenBeca){}
 
 double estudianteNoBecado::calcularPagoCreditos(){
+    double montoTotal = 0.0;
     
+    iterador *iteradorEstudiante = listaCursos->obtenerIterador();
+    curso *cursoAuxiliar = NULL;
+    while(iteradorEstudiante->masElementos()){
+        cursoAuxiliar = (curso*)iteradorEstudiante->proximoElemento();
+        if(cursoAuxiliar){
+            montoTotal += ( (cursoAuxiliar->obtenerCreditos() *10000) + 15000 );
+            montoTotal += montoTotal*PORCENTAJE_RECARGO;
+        }
+    }
+    
+    return montoTotal;
 }
-
+void estudianteNoBecado::asignarCurso(objeto* cursoX){
+    listaCursos->agregarObjeto(cursoX);
+}
 estudianteNoBecado::~estudianteNoBecado() {
 }
-string estudianteNoBecado::toString() const{}
+

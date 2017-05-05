@@ -100,13 +100,14 @@ string universidad::verEscuelasConCursos() const{
     stringstream x;
     x<<"Universidad: \n"<<universidad::toString()<<endl<<endl<<endl;
     iterador *ite = listaEscuelas->obtenerIterador();
-    
+    escuela *e1 = NULL;
     while(ite->masElementos()){
-        escuela *e1 = dynamic_cast<escuela*>(ite->proximoElemento());
-        if(e1 != 0){
+        e1 = (escuela*)ite->proximoElemento();
+        if(e1){
             x<<e1->verCursos();
         }
     }
+     
     return x.str();
 }
 

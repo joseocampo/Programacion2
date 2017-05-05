@@ -1,12 +1,31 @@
-build/Debug/Cygwin-Windows/main.o: main.cpp estudiante.h objeto.h \
- vector.h coleccion.h iterador.h
+build/Debug/Cygwin-Windows/main.o: main.cpp sistema.h interfaz.h \
+ universidad.h escuela.h curso.h objeto.h lista.h coleccion.h iterador.h \
+ profesor.h grupo.h vector.h estudianteBecado.h estudiante.h
 
-estudiante.h:
+sistema.h:
+
+interfaz.h:
+
+universidad.h:
+
+escuela.h:
+
+curso.h:
 
 objeto.h:
 
-vector.h:
+lista.h:
 
 coleccion.h:
 
 iterador.h:
+
+profesor.h:
+
+grupo.h:
+
+vector.h:
+
+estudianteBecado.h:
+
+estudiante.h:

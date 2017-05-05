@@ -59,8 +59,8 @@ string escuela::toString() const{
     
     return x.str();
 }
-void escuela::asignarCurso(string sigla,string nombre){
-    objeto *_curso = new curso(sigla,nombre);
+void escuela::asignarCurso(string sigla,string nombre,int creditos){
+    objeto *_curso = new curso(sigla,nombre,creditos);
     listaCursos->agregarObjeto(_curso);
 }
 
@@ -73,6 +73,7 @@ string escuela::verCursos() const{
     
     return x.str();
 }
+
 objeto* escuela::obtenerCurso(string sigla)const{
     iterador *ite = listaCursos->obtenerIterador();
     curso *cursoAuxiliar = NULL;

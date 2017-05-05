@@ -25,7 +25,7 @@ public:
     escuela& operator=(const escuela&);
     virtual string obtenerNombre() const;
     virtual string toString() const;
-    virtual void asignarCurso(string,string);
+    virtual void asignarCurso(string,string,int);
     virtual string verCursos()const;
     virtual string verCursosSinDetalles()const;
     virtual objeto* obtenerCurso(string) const;

@@ -17,11 +17,26 @@ estudianteBecado::estudianteBecado(string nombre,string ap1,string ap2,string ca
 estudiante( nombre, ap1, ap2, carnet, cedula, nacion, porcenBeca){}
 
 double estudianteBecado::calcularPagoCreditos(){
+    double montoTotal = 0.0;
     
+    iterador *iteradorEstudiante = listaCursos->obtenerIterador();
+    curso *cursoAuxiliar = NULL;
+    while(iteradorEstudiante->masElementos()){
+        cursoAuxiliar = (curso*)iteradorEstudiante->proximoElemento();
+        if(cursoAuxiliar){
+            montoTotal += ( (cursoAuxiliar->obtenerCreditos() *10000) + 15000 );
+            if(_porcentajeBeca > 0){
+                montoTotal -= montoTotal*_porcentajeBeca;
+            }
+        }
+    }
+    
+    return montoTotal;
 }
-
+void estudianteBecado::asignarCurso(objeto* cursoX){
+    listaCursos->agregarObjeto(cursoX);
+}
 
 estudianteBecado::~estudianteBecado() {
 }
 
-string estudianteBecado::toString() const{}

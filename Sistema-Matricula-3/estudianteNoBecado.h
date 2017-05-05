@@ -13,13 +13,15 @@
 
 #ifndef ESTUDIANTENOBECADO_H
 #define ESTUDIANTENOBECADO_H
+const float PORCENTAJE_RECARGO = 0.40;
 #include"estudiante.h"
-class estudianteNoBecado :public estudiante {
+class estudianteNoBecado :public estudianteExtranjero {
 public:
     estudianteNoBecado(string,string,string,string,string,string,float);
     virtual double calcularPagoCreditos();
     virtual ~estudianteNoBecado();
-    virtual string toString()const ;
+    virtual void asignarCurso(objeto*);
+ 
 private:
 
 };

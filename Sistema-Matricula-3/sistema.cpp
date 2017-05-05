@@ -11,8 +11,8 @@
  * Created on 21 de abril de 2017, 08:27 PM
  */
 
+#include "estudianteBecado.h"
 #include "sistema.h"
-
 sistema::sistema() {
     this->_interfaz = new interfaz();
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
@@ -52,7 +52,7 @@ void sistema::iniciarSistema(){
         case 3:{
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
             system("cmd /c cls");
-////            escuela *escuelaAuxiliar = new escuela( _interfaz->solicitarNombreEscuela() );
+
             
             _universidad->asignarEscuelas(_interfaz->solicitarNombreEscuela());
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
@@ -76,15 +76,14 @@ void sistema::iniciarSistema(){
             cout<<_universidad->verEscuelasSinDetalles()<<"\n";
             cout<<"INGRESE NOMBRE DE LA ESCUELA A LA QUE DESEA AGREGAR EL CURSO: ";
             cin>>nombreEscuela;
-//            escuela *escuelaAuxiliar =_universidad->obtenerEscuela(nombreEscuela);
+
             objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
             escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
             if(escuelaAuxiliar){
                 
             cout<<"LA ESCUELA BUSCADA ES: "<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
-//            curso *cursoAuxiliar = new curso(_interfaz->solicitarSiglaCurso());
-//            cursoAuxiliar->asignarNombre(_interfaz->solicitarNombreCurso());
-            escuelaAuxiliar->asignarCurso(_interfaz->solicitarSiglaCurso(),_interfaz->solicitarNombreCurso());
+
+            escuelaAuxiliar->asignarCurso(_interfaz->solicitarSiglaCurso(),_interfaz->solicitarNombreCurso(),_interfaz->solicitarCreditosCurso());
             
             }else{
                 cout<<"lA ESCUELA QUE BUSCA NO EXISTE"<<endl;
@@ -217,7 +216,7 @@ void sistema::iniciarSistema(){
               cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
             cout<<escuelaAuxiliar->verCursosSinDetalles()<<endl;
             
-        
+            
             cout<<"INGRESE LA SIGLA DEL CURSO A ELIMINAR: ";
             cin>>siglaCurso;
             objeto *objetoCurso =  escuelaAuxiliar->obtenerCurso(siglaCurso);
@@ -247,6 +246,8 @@ void sistema::iniciarSistema(){
             cout<<_universidad->verEscuelasSinDetalles()<<"\n";
             cout<<"INGRESE NOMBRE DE LA ESCUELA A LA QUE DESEA AGREGAR EL PROFESOR: ";
             cin>>nombreEscuela;
+            
+            
            
 
             objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
@@ -280,12 +281,13 @@ void sistema::iniciarSistema(){
             
             if(escuelaAuxiliar){
             cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
-            cout<<escuelaAuxiliar->verCursosSinDetalles()<<endl;
+            cout<<escuelaAuxiliar->verProfesores()<<endl;
 
             cout<<"INGRESE EL ID DEL PROFESOR A MODIFICAR: ";
             cin>>idProfe;
-            objeto *objetoCurso = escuelaAuxiliar->buscarProfesorPorCedula(idProfe);
-            profesor *profesorAuxiliar = (profesor*)objetoCurso;
+            
+            objeto *objetoProfe = escuelaAuxiliar->buscarProfesorPorCedula(idProfe);
+            profesor *profesorAuxiliar = (profesor*)objetoProfe;
             if(profesorAuxiliar){
                 cout<<"EL PROFESOR A MODIFICAR ES:\n"<<profesorAuxiliar->toString();
                 cout<<"\n\nINGRESE EL NUEVO NOMBRE NOMBRE PARA EL PROFESOR: ";
@@ -350,7 +352,7 @@ void sistema::iniciarSistema(){
             system("cmd /c cls");
             
 
-            string nombreEscuela, idProfe,nuevoNombre;
+            string nombreEscuela;
             cout<<_universidad->verEscuelasSinDetalles()<<"\n";
             cout<<"INGRESE NOMBRE DE LA ESCUELA EN LA QUE DESEA CONSULTAR LA LISTA DE PROFESORES: ";
             cin>>nombreEscuela;
@@ -376,11 +378,291 @@ void sistema::iniciarSistema(){
             
         
         }break;
+        case 15:{
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+            system("cmd /c cls");
+            
+            
+            int numeroGrupo;
+            string nombreEscuela,sigla,IDProfe;
+            cout<<_universidad->verEscuelasSinDetalles()<<"\n";
+            cout<<"INGRESE NOMBRE DE LA ESCUELA EN LA QUE DESEA AGREGAR PROFESOR A UN CURSO: ";
+            cin>>nombreEscuela;
+            objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
+            escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
+            
+            if(escuelaAuxiliar){
+            cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
+            
+            cout<<escuelaAuxiliar->verCursosSinDetalles();
+            cout<<"INGRESE LA SIGLA DEL CURSO AL QUE DESEA AGREGAR PROFESOR: ";
+            cin>>sigla;
+            objeto *objetoAuxiliar = escuelaAuxiliar->obtenerCurso(sigla);
+            curso *cursoauxiliar = (curso*)objetoAuxiliar;
+            
+            do{
+            numeroGrupo = _interfaz->solicitarNumeroCurso();
+            }while(cursoauxiliar->grupoExistente(numeroGrupo) == true);
+            
+            
+//            cursoauxiliar->agregarGrupo(numeroGrupo);
+            cout<<escuelaAuxiliar->verProfesores();
+            cout<<"INGRESE id DEL PROFESOR A AGREGAR: ";
+            cin>>IDProfe;
+            objeto * profeAuxiliar = escuelaAuxiliar->buscarProfesorPorCedula(IDProfe);
+            cursoauxiliar->asignarProfesorGrupo(profeAuxiliar,numeroGrupo);
+            (  (profesor*)profeAuxiliar)->asignarCurso(cursoauxiliar);
+            
+
+            
+            
+   
+            }else{
+                cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
+            }
+           
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            system("cmd /c pause");
+                
+            
+            
         
+        }break;
+        case 16:{
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+            system("cmd /c cls");
+            
+            
+            int numeroGrupo;
+            string nombreEscuela,sigla,IDProfe;
+            cout<<_universidad->verEscuelasSinDetalles()<<"\n";
+            cout<<"INGRESE NOMBRE DE LA ESCUELA EN LA QUE DESEA DESASIGNAR PROFESOR DE UN CURSO: ";
+            cin>>nombreEscuela;
+            objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
+            escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
+            
+            if(escuelaAuxiliar){
+            cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
+            
+            cout<<escuelaAuxiliar->verCursosSinDetalles();
+            cout<<"INGRESE LA SIGLA DEL CURSO EN EL QUE DESEA DESASIGNAR UN PROFESOR: ";
+            cin>>sigla;
+            objeto *objetoAuxiliar = escuelaAuxiliar->obtenerCurso(sigla);
+            curso *cursoauxiliar = (curso*)objetoAuxiliar;
+            
+               
+            cout<<cursoauxiliar->verProfesoresCurso();
+            cout<<"INGRESE id DEL PROFESOR A DESASIGNAR: ";//////
+            cin>>IDProfe;
+            objeto *profeAuxiliar = escuelaAuxiliar->buscarProfesorPorCedula(IDProfe);
+            cursoauxiliar->desasignarProfesor(IDProfe);
+            ((profesor*)profeAuxiliar)->eliminarCurso(sigla);
+            
+
+            
+            
+   
+            }else{
+                cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
+            }
+           
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            system("cmd /c pause");    
+        
+        
+        }break;
+        case 17:{
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+            system("cmd /c cls");
+//            objeto * estudianteMatricula = new estudianteBecado();
+            
+            
+            int numeroGrupo;
+            string nombreEscuela,sigla;
+            cout<<_universidad->verEscuelasSinDetalles()<<"\n";
+            cout<<"INGRESE NOMBRE DE LA ESCUELA EN LA QUE DESEA MATRICULAR ESTUDIANTE A UN CURSO: ";
+            cin>>nombreEscuela;
+            objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
+            escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
+            
+            if(escuelaAuxiliar){
+            cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
+            
+            cout<<escuelaAuxiliar->verCursosSinDetalles();
+            
+            cout<<"INGRESE LA SIGLA DEL CURSO EN QUE DESEA MATRICULAR ESTUDIANTE: ";
+            cin>>sigla;
+            objeto *objetoAuxiliar = escuelaAuxiliar->obtenerCurso(sigla);
+            curso *cursoauxiliar = (curso*)objetoAuxiliar;
+            
+            cout<<cursoauxiliar->verGruposSinEstudiantes()<<endl;
+            
+            do{
+                cout<<"INGRESE EL NUMERO DEL GRUPO EN QUE DESEA MATRICULAR ESTUDIANTE: ";
+                cin>>numeroGrupo;
+            }while(cursoauxiliar->grupoExistente(numeroGrupo) == false);
+            
+            
+            
+            objeto *e1 = new estudianteBecado("DIDIER","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
+            
+            cursoauxiliar->asignarEstudianteGrupo(e1,numeroGrupo);
+            
+//            ((  estudianteBecado*)e1 )->
+//            
+//            objeto *X = cursoauxiliar->obtenerEstudiantePorId("20733000");
+//            
+//            if(X){
+//            cout<<( ((estudianteBecado*)X)->toString() );
+//            }else cout<<"NO FUNCA"<<endl;
+//            
+   
+            }else{
+                cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
+            }
+           
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            system("cmd /c pause");
+                
+            
+            
+        
+        }break;
+        case 18:{
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+            system("cmd /c cls");
+            
+            
+            
+            string nombreEscuela,sigla;
+            cout<<_universidad->verEscuelasSinDetalles()<<"\n";
+            cout<<"INGRESE NOMBRE DE LA ESCUELA EN LA QUE DESEA VER PROFESORES DE UN CURSO: ";
+            cin>>nombreEscuela;
+            objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
+            escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
+            
+            if(escuelaAuxiliar){
+            cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
+            
+            cout<<escuelaAuxiliar->verCursosSinDetalles();
+            cout<<"INGRESE LA SIGLA DEL CURSO DEL QUE DESEA VER PROFESORES: ";
+            cin>>sigla;
+            objeto *objetoAuxiliar = escuelaAuxiliar->obtenerCurso(sigla);
+            curso *cursoauxiliar = (curso*)objetoAuxiliar;
+            
+            if(cursoauxiliar){
+                cout<<cursoauxiliar->obtenerProfesoresDeCurso();
+            }else{
+                cout<<"EL CURSO QUE BUSCA NO EXISTE"<<endl;
+            }
+            
+   
+            }else{
+                cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
+            }
+           
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            system("cmd /c pause");
+                
+            
+            
+        
+        }break;
+        case 19:{
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+            system("cmd /c cls");
+            
+            
+            
+            string nombreEscuela,cedula;
+            cout<<_universidad->verEscuelasSinDetalles()<<"\n";
+            cout<<"INGRESE NOMBRE DE LA ESCUELA EN LA QUE DESEA VER CURSOS DE UN PROFESOR: ";
+            cin>>nombreEscuela;
+            objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
+            escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
+            
+            if(escuelaAuxiliar){
+            cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
+            
+            cout<<escuelaAuxiliar->verProfesores();
+            cout<<"INGRESE EL ID DEL PROFESOR DEL QUE DESEA VER CURSOS: ";
+            cin>>cedula;
+            objeto *objetoAuxiliar = escuelaAuxiliar->buscarProfesorPorCedula(cedula);
+            profesor *profeAuxiliar = (profesor*)objetoAuxiliar;
+            
+            if(profeAuxiliar){
+                cout<<profeAuxiliar->verCursos();
+            }else{
+                cout<<"EL PROFE QUE BUSCA NO EXISTE"<<endl;
+            }
+            
+   
+            }else{
+                cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
+            }
+           
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            system("cmd /c pause");
+                
+            
+            
+        
+        }break;
+        case 20:{
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+            system("cmd /c cls");
+            
+            
+            int numeroGrupo;
+            string nombreEscuela,sigla,cedula;
+            cout<<_universidad->verEscuelasSinDetalles()<<"\n";
+            cout<<"INGRESE NOMBRE DE LA ESCUELA EN LA QUE DESEA CALCULAR PAGOCREDITOS DE ESTUDIANTE: ";
+            cin>>nombreEscuela;
+            objeto *objetoAuxiliar = _universidad->obtenerEscuela(nombreEscuela);
+            escuela *escuelaAuxiliar = (escuela*)objetoAuxiliar;
+            
+            if(escuelaAuxiliar){
+            cout<<escuelaAuxiliar->obtenerNombre()<<endl<<endl;
+            
+            cout<<escuelaAuxiliar->verCursosSinDetalles();
+            
+            cout<<"INGRESE LA SIGLA DEL CURSO EN QUE DESEA CALCULAR PAGOCREDITOS DE ESTUDIANTE: ";
+            cin>>sigla;
+            objeto *objetoAuxiliar = escuelaAuxiliar->obtenerCurso(sigla);
+            curso *cursoauxiliar = (curso*)objetoAuxiliar;
+            objeto *estudianteAuxiliar = NULL; // puntero para guardar el puntero que retorna el curso
+            cout<<cursoauxiliar->toString()<<endl;
+            
+            cout<<"INGRESE EL ID DEL ESTUDIANTE EN QUE DESEA CALCULAR PAGOCREDITOS DE ESTUDIANTE: ";
+            cin>>cedula;
+            estudianteAuxiliar = cursoauxiliar->obtenerEstudiantePorId(cedula);
+            
+            cout<<"EL MONTO A PAGAR DEL ESTUDIANTE: "<<((estudiante*)estudianteAuxiliar)->obtenerNombre();
+            cout<<" es "<<cursoauxiliar->pagoCreditos( ((estudiante*)estudianteAuxiliar)->obtenerNombre() );
+            
+            do{
+                cout<<"INGRESE EL NUMERO DEL GRUPO EN QUE DESEA CALCULAR PAGOCREDITOS DE ESTUDIANTE: ";
+                cin>>numeroGrupo;
+            }while(cursoauxiliar->grupoExistente(numeroGrupo) == false);
+            
+            
+             
+   
+            }else{
+                cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
+            }
+           
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            system("cmd /c pause");
+                
+            
+            
+        
+        }break;
         default:{
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
             system("cmd /c cls"); 
-            cout<<"\n\n"<<"         Ã‚Â¿DESEA SALIR DEL SISTEMA?: "<<endl;
+            cout<<"\n\n"<<"         ¿DESEA SALIR DEL SISTEMA?: "<<endl;
              SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
             cout<<"         DIGITE  1) PARA SALIR"<<endl;
             cout<<"         DIGITE  2) PARA  NO SALIR"<<endl;
@@ -394,7 +676,7 @@ void sistema::iniciarSistema(){
         
     }    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
          system("cmd /c cls"); 
-         if(opcionSalir == 1){cout<<"\n\n"<<"         Â¡Â¡ GRACIAS POR USAR NUESTRO SISTEMA DE MATRICULA !!"<<endl<<endl;}
+         if(opcionSalir == 1){cout<<"\n\n"<<"         ¡¡ GRACIAS POR USAR NUESTRO SISTEMA DE MATRICULA !!"<<endl<<endl;}
          SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
     }while(opcionSalir != 1);
     

@@ -14,12 +14,16 @@
 #ifndef ESTUDIANTEBECADO_H
 #define ESTUDIANTEBECADO_H
 #include"estudiante.h"
-class estudianteBecado :public estudiante {
+
+
+class estudianteBecado :public estudianteNacional {
 public:
-    estudianteBecado(string,string,string,string,string,string,float);
+   estudianteBecado(string,string,string,string,string,string,float);
    virtual double calcularPagoCreditos();
-    virtual ~estudianteBecado();
-    virtual string toString()const ;
+   virtual ~estudianteBecado();
+   virtual void asignarCurso(objeto*);
+   
+   
 private:
 
 };

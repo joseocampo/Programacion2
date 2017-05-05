@@ -26,7 +26,7 @@ profesor::~profesor() {
 string profesor::toString() const {
 
 stringstream x;
-    x<<"Profesor "<<nombre<<endl;
+    x<<"Profesor: "<<nombre<<endl;
     x<<"Id: "<<id<<endl<<endl;
     return x.str();
 
@@ -41,16 +41,17 @@ void profesor::asignarId(string i){id=i;}
 
 string profesor::obtenerId(){return id;}
 
-void profesor::asignarCurso(curso *_curso){
-    objeto *objetoAuxiliar = dynamic_cast<objeto*>(_curso);
-    listaCursos->agregarObjeto(objetoAuxiliar);   
+void profesor::asignarCurso(objeto *_curso){
+
+    listaCursos->agregarObjeto(_curso);   
 }
 
 objeto* profesor::obtenerCurso(string sigla)const{
     iterador *ite = listaCursos->obtenerIterador();
+    curso *cursoAuxiliar = NULL; 
     while(ite->masElementos()){
-        curso *cursoAuxiliar = dynamic_cast<curso*>(ite->proximoElemento());
-        if(cursoAuxiliar != 0){
+        cursoAuxiliar = dynamic_cast<curso*>(ite->proximoElemento());
+        if(cursoAuxiliar){
             if(cursoAuxiliar->obtenerSigla() == sigla){
                 return cursoAuxiliar;
                 
@@ -61,24 +62,30 @@ objeto* profesor::obtenerCurso(string sigla)const{
 }
 
 
-string profesor::verCursos() const{
-    stringstream x;
-    x<<"\n______________________________________________________\n";
-    x<<"\n\nCursos Asociados a "<<nombre<<endl;
-    x<<listaCursos->toString()<<endl;
-    x<<"\n______________________________________________________\n";
-    
-    return x.str();
-}
 
+
+
+//void profesor::eliminarCurso(string _sigla){
+// iterador *ite = listaCursos->obtenerIterador();
+// curso *cursoAuxiliar = NULL;
+//    while(ite->masElementos()){
+//        cursoAuxiliar = dynamic_cast<curso*>(ite->proximoElemento());
+//        if(cursoAuxiliar){
+//            if(cursoAuxiliar->obtenerSigla() == _sigla){
+//                objeto *objetoAuxiliar = dynamic_cast<objeto*>(cursoAuxiliar);
+//                listaCursos->eliminarObjeto(objetoAuxiliar);
+//                
+//            }
+//        }
+//    }
+//}
 
 void profesor::eliminarCurso(string _sigla){
-
  iterador *ite = listaCursos->obtenerIterador();
- 
+ curso *cursoAuxiliar = NULL;
     while(ite->masElementos()){
-        curso *cursoAuxiliar = dynamic_cast<curso*>(ite->proximoElemento());
-        if(cursoAuxiliar != 0){
+        cursoAuxiliar = dynamic_cast<curso*>(ite->proximoElemento());
+        if(cursoAuxiliar){
             if(cursoAuxiliar->obtenerSigla() == _sigla){
                 objeto *objetoAuxiliar = dynamic_cast<objeto*>(cursoAuxiliar);
                 listaCursos->eliminarObjeto(objetoAuxiliar);
@@ -86,10 +93,27 @@ void profesor::eliminarCurso(string _sigla){
             }
         }
     }
-
-
 }
 
+
+
+string profesor::verCursos() const{
+    stringstream x;
+    x<<"\n______________________________________________________\n";
+    x<<"\n\nCursos Asociados a "<<nombre<<endl<<endl;
+    x<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - "<<endl;
+    iterador *ite = listaCursos->obtenerIterador();
+ curso *cursoAuxiliar = NULL;
+    while(ite->masElementos()){
+        cursoAuxiliar = dynamic_cast<curso*>(ite->proximoElemento());
+        if(cursoAuxiliar){     
+            x<<cursoAuxiliar->obtenerNombre()<<endl<<endl;                   
+        }
+    }
+    x<<"\n______________________________________________________\n";
+    
+    return x.str();
+}
 
 
 

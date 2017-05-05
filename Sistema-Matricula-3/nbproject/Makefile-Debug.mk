@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=MinGW-Windows
+CND_PLATFORM=Cygwin-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -40,12 +40,15 @@ OBJECTFILES= \
 	${OBJECTDIR}/escuela.o \
 	${OBJECTDIR}/estudiante.o \
 	${OBJECTDIR}/estudianteBecado.o \
+	${OBJECTDIR}/estudianteExtranjero.o \
+	${OBJECTDIR}/estudianteNacional.o \
 	${OBJECTDIR}/estudianteNoBecado.o \
 	${OBJECTDIR}/grupo.o \
 	${OBJECTDIR}/interfaz.o \
 	${OBJECTDIR}/iterador.o \
 	${OBJECTDIR}/lista.o \
 	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/matricula.o \
 	${OBJECTDIR}/objeto.o \
 	${OBJECTDIR}/profesor.o \
 	${OBJECTDIR}/sistema.o \
@@ -102,6 +105,16 @@ ${OBJECTDIR}/estudianteBecado.o: estudianteBecado.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/estudianteBecado.o estudianteBecado.cpp
 
+${OBJECTDIR}/estudianteExtranjero.o: estudianteExtranjero.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/estudianteExtranjero.o estudianteExtranjero.cpp
+
+${OBJECTDIR}/estudianteNacional.o: estudianteNacional.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/estudianteNacional.o estudianteNacional.cpp
+
 ${OBJECTDIR}/estudianteNoBecado.o: estudianteNoBecado.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -131,6 +144,11 @@ ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+
+${OBJECTDIR}/matricula.o: matricula.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/matricula.o matricula.cpp
 
 ${OBJECTDIR}/objeto.o: objeto.cpp 
 	${MKDIR} -p ${OBJECTDIR}

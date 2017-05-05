@@ -31,16 +31,38 @@ public:
     virtual string obtenerSigla() const;
     virtual int obtenerCreditos() const;
     virtual string toString() const;
-    virtual void asignarProfesor(profesor*);
-    virtual objeto* obtenerProfesor(string) const;
-    virtual string verProfesores()const;
-    virtual void eliminarProfesor(string);
+//    virtual void asignarProfesor(objeto*);
+//    virtual objeto* obtenerProfesor(string) const;
+//    virtual string verProfesores()const;
+//    virtual void eliminarProfesor(string);
+    
+    //estos metodos hacia abajo son pruebas
+    virtual void agregarGrupo(int);
+    virtual void asignarProfesorGrupo(objeto*,int);
+//    virtual objeto* obtenerProfesor(string) const;
+ 
+    virtual void asignarEstudianteGrupo(objeto*,int);
+    virtual objeto* obtenerEstudiantePorId(string);
+    virtual objeto* obtenerEstudiantePorCarnet(string);
+    virtual bool grupoExistente(int);
+    virtual string obtenerProfesoresDeCurso();
+    virtual string obtenerProfesorGrupo()const;
+    virtual objeto* obtenerGrupo(int);
+    
+    virtual string verGruposSinEstudiantes()const;
+    virtual double pagoCreditos(string);
+    virtual coleccion* obetenerColeccion() const;
+    
+    //metodos de david--------------------------
+     virtual void desasignarProfesor(string);
+     virtual string verProfesoresCurso()const;
+    
 private:
     string _nombre;
     string _sigla;
     int _creditos;
-    coleccion* listaProfesores;
-    coleccion *listaGrupos;
+   //coleccion* listaProfesores; //NO IMPLEMENTAR
+    coleccion *listaGrupos; //pruebas
 
 };
 

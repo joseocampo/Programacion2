@@ -17,12 +17,26 @@
 
 class grupo :public objeto{
 public:
-    grupo();
+    grupo(int);
     virtual ~grupo();
     virtual void agregarEstudiante(objeto*);
+    virtual void asignarProfe(objeto*);
+    virtual objeto* obtenerProfe() const;
+    
+    virtual string toString()const;
+    virtual string verGruposSinEstudiantes()const;
+    virtual objeto* buscarEstudiantePorId(string);
+    virtual objeto* buscarEstudiantePorCarnet(string);
+    virtual int obtenerNumeroGrupo()const;
+    
+    // metodos david
+    virtual void eliminarProfe();
+    
     
 private:
     coleccion* _arreglo;
+    int _numeroGrupo;
+    objeto* _profesorGrupo;
     
 
 };

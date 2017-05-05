@@ -8,18 +8,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/universidad.cpp</file>
-            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/estudianteBecado.h</file>
-            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/profesor.cpp</file>
-            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/sistema.cpp</file>
-            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/escuela.cpp</file>
-            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/profesor.h</file>
             <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/curso.cpp</file>
             <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/estudianteNoBecado.cpp</file>
-            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/estudiante.h</file>
-            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/universidad.h</file>
+            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/grupo.cpp</file>
+            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/profesor.cpp</file>
             <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/estudianteBecado.cpp</file>
-            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/estudiante.cpp</file>
-            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/estudianteNoBecado.h</file>
+            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/escuela.cpp</file>
+            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/matricula.h</file>
+            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/matricula.cpp</file>
+            <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/curso.h</file>
             <file>file:/C:/Users/jose%20ocampo/Documents/NetBeansProjects/Programacion2/Sistema-Matricula-3/escuela.h</file>
         </group>
     </open-files>

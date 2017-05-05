@@ -14,29 +14,32 @@
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
 #include"objeto.h"
+#include"curso.h"
 class estudiante :public objeto{
 public:
     estudiante(string,string,string,string,string,string,float);
     virtual ~estudiante();
-    virtual double calcularPagoCreditos();
+    virtual double calcularPagoCreditos() = 0;
     virtual string toString()const ;
-//    
-//    virtual string obtenerNombre()const;
+    
+    virtual string obtenerNombre()const;
 //    virtual string obtenerApellido1()const;
 //    virtual string obtenerApellido2()const;
-//    virtual string obtenerCedula()const;
-//    virtual string obtenerCarnet()const;
-//    virtual string obtenerNacionalidad()const;
-//    
-//    
-//    virtual void asignarNombre(string);
-//    virtual void asignarApellido1(string);
-//    virtual void asignarApellido2(string);
+    virtual string obtenerCedula()const;
+    virtual string obtenerCarnet()const;
+    virtual string obtenerNacionalidad()const;
+    virtual float obtenerPorcentajeBeca()const;
+    
+    virtual void asignarNombre(string);
+    virtual void asignarApellido1(string);
+    virtual void asignarApellido2(string);
 //    virtual void asignarCedula(string);
 //    virtual void asignarCarnet(string);
-//    virtual void asignarNacionalidad(string);
-//    virtual void asignarPorcentajeBeca(float);
-private:
+    virtual void asignarNacionalidad(string);
+    virtual void asignarPorcentajeBeca(float);
+    
+    virtual void asignarCurso(objeto*) = 0;
+protected:
     string _nombre;
     string _apellido1;
     string _apellido2;
@@ -44,6 +47,8 @@ private:
     string _carnet;
     string _nacionalidad;
     float _porcentajeBeca;
+    coleccion *listaCursos;
+    
    
 
 };

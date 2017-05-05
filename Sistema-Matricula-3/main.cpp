@@ -13,7 +13,7 @@
 
 #include <cstdlib>
 #include"sistema.h"
-#include"estudiante.h"
+#include"estudianteBecado.h"
 #include "vector.h"
 using namespace std;
 #include<iostream>
@@ -21,13 +21,19 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-//    cout<<"Hola";
+    
+    
+//
 //    coleccion *estud = new vector();
-//    objeto *e1 = new estudiante("DIDIER","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
-//    objeto *e2 = new estudiante("JOSE","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
-//    objeto *e3 = new estudiante("BOB","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
-//    objeto *e4 = new estudiante("WEIN","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
-//  
+//    objeto *e1 = new estudianteBecado("DIDIER","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
+//    objeto *e2 = new estudianteBecado("JOSE","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
+//    objeto *e3 = new estudianteBecado("BOB","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
+//    objeto *e4 = new estudianteBecado("WEIN","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
+//    
+//    objeto *e5;
+//    e5 = (estudianteBecado*)e1;
+//    cout<<e5->toString();
+  
 //    
 //    estud->agregarObjeto(e1);
 //    estud->agregarObjeto(e2);
@@ -80,10 +86,9 @@ int main(int argc, char** argv) {
 //    
 //    cout<<uni->verEscuelasSinDetalles();
 //    
-    
+//    
     sistema *sistema1 = new sistema();
     sistema1->iniciarSistema();
-    
     
 
     return 0;

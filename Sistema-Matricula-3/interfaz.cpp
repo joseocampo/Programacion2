@@ -75,6 +75,23 @@ string interfaz::solicitarIdProfesor() const{
     cin>>id;
     return id;
 }
+int interfaz::solicitarCreditosCurso() const{
+    int creditos;
+    do{
+    cout<<" \nIngrese la cantidad de creditos del curso: "<< endl;
+    cin>>creditos;
+    }while(creditos < 1 || creditos > 4);
+    return creditos;
+}
+int interfaz::solicitarNumeroCurso()  const{
+    int numeroCurso;
+
+    cout<<" \nIngrese el numero  del curso: "<< endl;
+    cin>>numeroCurso;
+    
+    return numeroCurso;
+}
+
 
 int interfaz::desplegarMenuPrincipal() const{
     int opcion=0;
@@ -93,7 +110,13 @@ int interfaz::desplegarMenuPrincipal() const{
     cout<<"     12)      MODIFICAR EL NOMBRE DE UN PROFESOR ESPECIFICO"<<endl;
     cout<<"     13)      CONSULTAR UN PROFESOR DE UNA ESCUELA ESPECIFICA CON SU ID "<<endl;
     cout<<"     14)      CONSULTAR LISTA DE PROFESORES DE LA UNIVERSIDAD POR ESCUELAS"<<endl;
-    cout<<"     15)      SALIR"<<endl;
+    cout<<"     15)      ASIGNAR UN PROFESOR A UN CURSO"<<endl;
+    cout<<"     16)      DESASIGNAR UN PROFESOR A UN CURSO"<<endl;/////////////
+    cout<<"     17)      INGRESAR ESTUDIANTES A UN CURSO"<<endl;
+    cout<<"     18)      VER LISTA DE PROFESORES DE UN CURSO"<<endl;
+    cout<<"     19)      VER LISTA DE CURSOS DE UN PROFESOR"<<endl;
+    cout<<"     20)      MODIFICAR DATOS BASICOS DE UN ESTUDIANTE"<<endl;
+    cout<<"     21)      SALIR"<<endl;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
     
     cout<<"\n\n"<<"         Elije la opcion que desea realizar"<<endl;

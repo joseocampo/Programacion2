@@ -14,6 +14,7 @@
 #include "vector.h"
 
 //IMPLEMETACION DE LA CLASE VECTOR
+
 vector::vector():_cantidad(0),_estudiantes(new objeto*[TAMANO]) {
     for(int i=0; i<TAMANO; i++){
         _estudiantes[i] = NULL;
@@ -30,6 +31,7 @@ int vector::numElementos() const{
     return contador;
 }
 void vector::eliminarObjeto(objeto* x){}
+
 void vector::agregarObjeto(objeto* estu){
     if(!_estudiantes[_cantidad]){
     _estudiantes[_cantidad] = estu;

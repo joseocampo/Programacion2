@@ -13,14 +13,80 @@
 
 #include "grupo.h"
 #include "coleccion.h"
+#include "estudiante.h"
 
-grupo::grupo():_arreglo(new vector()){
+grupo::grupo(int numGrupo):_numeroGrupo(numGrupo),_arreglo(new vector()){
 }
 void grupo::agregarEstudiante(objeto* estudianteX){
-     _arreglo->agregarObjeto(estudianteX);
+    _arreglo->agregarObjeto(estudianteX);
+     
 }
+void grupo::eliminarProfe(){
+    
+//       ((profesor*)_profesorGrupo)->eliminarDatosBasicos();
+    
+    _profesorGrupo = NULL;
+    
+}
+void grupo::asignarProfe(objeto* profe){
+    this->_profesorGrupo = profe;
+}
+objeto* grupo::obtenerProfe() const{
+    return this->_profesorGrupo;  //retorna el puntero del profesosr del grupo
+} 
 
 
 grupo::~grupo() {
+}
+string grupo::toString() const{
+    stringstream x;
+    x<<"Grupo #"<<_numeroGrupo<<endl;
+    x<<_profesorGrupo->toString();
+//    x<<"Estudiantes: \n"<<_arreglo->toString();
+    
+    return x.str();
+}
+
+string grupo::verGruposSinEstudiantes() const{
+    stringstream x;
+    x<<"Grupo #"<<_numeroGrupo<<endl;
+    x<<"Profesor: "<<_profesorGrupo->toString();
+    
+    return x.str();
+}
+int grupo::obtenerNumeroGrupo() const{return this->_numeroGrupo;  }
+
+objeto* grupo::buscarEstudiantePorId(string cedula){
+    iterador *ite = _arreglo->obtenerIterador();
+    estudiante* estudianteAux = NULL;
+    
+    while(ite->masElementos()){
+        estudianteAux = (estudiante*)ite->proximoElemento();
+        if(estudianteAux){
+            if(estudianteAux->obtenerCedula() == cedula){
+                return estudianteAux;
+            }
+        }
+   
+    }
+    return NULL;
+    
+}
+
+objeto* grupo::buscarEstudiantePorCarnet(string carnet){
+    iterador *ite = _arreglo->obtenerIterador();
+    estudiante* estudianteAux = NULL;
+    
+    while(ite->masElementos()){
+        estudianteAux = (estudiante*)ite->proximoElemento();
+        if(estudianteAux){
+            if(estudianteAux->obtenerCarnet() == carnet){
+                return estudianteAux;
+            }
+        }
+   
+    }
+    return NULL;
+    
 }
 
