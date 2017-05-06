@@ -98,9 +98,10 @@ void curso::agregarGrupo(int numeroGrupo){
 }
 
 void curso::asignarProfesorGrupo(objeto* profe,int numeroGrupo ){
-    objeto* grupoAuxiliar = new grupo(numeroGrupo); 
-    //la linea anterior crea un grupo con su respectivo numero de grupo
-    listaGrupos->agregarObjeto(grupoAuxiliar);
+    
+    agregarGrupo(numeroGrupo);
+    //la linea anterior crea un grupo con su respectivo numero de grupo y lo agrega a la listaGrupos
+    
     iterador *ite = listaGrupos->obtenerIterador();
     grupo *aux = NULL;
     while(ite->masElementos()){
@@ -116,19 +117,19 @@ void curso::asignarProfesorGrupo(objeto* profe,int numeroGrupo ){
 
 
 
-void curso::asignarEstudianteGrupo(objeto* estudianteX,int numeroGrupo){
-    iterador *ite = listaGrupos->obtenerIterador();
-    grupo *grupoAuxiliar = NULL;
-    while(ite->masElementos()){
-        grupoAuxiliar = (grupo*)ite->proximoElemento();
-        if(grupoAuxiliar){
-            if(grupoAuxiliar->obtenerNumeroGrupo() == numeroGrupo){
-                grupoAuxiliar->agregarEstudiante(estudianteX);
-            }
-            
-        }
-    }
-}
+//void curso::asignarEstudianteGrupo(objeto* estudianteX,int numeroGrupo){
+//    iterador *ite = listaGrupos->obtenerIterador();
+//    grupo *grupoAuxiliar = NULL;
+//    while(ite->masElementos()){
+//        grupoAuxiliar = (grupo*)ite->proximoElemento();
+//        if(grupoAuxiliar){
+//            if(grupoAuxiliar->obtenerNumeroGrupo() == numeroGrupo){
+//                grupoAuxiliar->agregarEstudiante(estudianteX);
+//            }
+//            
+//        }
+//    }
+//}
 
 objeto* curso::obtenerEstudiantePorId(string cedula){
     iterador *ite = listaGrupos->obtenerIterador();
@@ -223,22 +224,22 @@ string curso::verGruposSinEstudiantes() const{
     return x.str();
 }
 
-double curso::pagoCreditos(string cedula){
-    double monto = 0;
-    
-    iterador *ite = listaGrupos->obtenerIterador();
-     
-    grupo *grupoAuxiliar = NULL;
-    objeto * estudianteAux = NULL;
-    while(ite->masElementos()){
-        grupoAuxiliar = (grupo*)ite->proximoElemento();
-        estudianteAux = grupoAuxiliar->buscarEstudiantePorId(cedula);
-        if(estudianteAux){
-            monto += ((estudiante*)estudianteAux)->calcularPagoCreditos();
-        }
-    }
-    return monto;
-}
+//double curso::pagoCreditos(string cedula){
+//    double monto = 0;
+//    
+//    iterador *ite = listaGrupos->obtenerIterador();
+//     
+//    grupo *grupoAuxiliar = NULL;
+//    objeto * estudianteAux = NULL;
+//    while(ite->masElementos()){
+//        grupoAuxiliar = (grupo*)ite->proximoElemento();
+//        estudianteAux = grupoAuxiliar->buscarEstudiantePorId(cedula);
+//        if(estudianteAux){
+//            monto += ((estudiante*)estudianteAux)->calcularPagoCreditos();
+//        }
+//    }
+//    return monto;
+//}
 
 void curso::desasignarProfesor(string _id){
 

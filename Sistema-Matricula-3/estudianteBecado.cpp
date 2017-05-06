@@ -16,10 +16,10 @@
 estudianteBecado::estudianteBecado(string nombre,string ap1,string ap2,string carnet,string cedula,string nacion,float porcenBeca):
 estudiante( nombre, ap1, ap2, carnet, cedula, nacion, porcenBeca){}
 
-double estudianteBecado::calcularPagoCreditos(){
-    double montoTotal = 0.0;
+long estudianteBecado::calcularPagoCreditos(){
+    long montoTotal = 0.0;
     
-    iterador *iteradorEstudiante = listaCursos->obtenerIterador();
+    iterador *iteradorEstudiante = listaCursos->obtenerIterador();//SE CAE AQUI
     curso *cursoAuxiliar = NULL;
     while(iteradorEstudiante->masElementos()){
         cursoAuxiliar = (curso*)iteradorEstudiante->proximoElemento();
@@ -33,7 +33,8 @@ double estudianteBecado::calcularPagoCreditos(){
     
     return montoTotal;
 }
-void estudianteBecado::asignarCurso(objeto* cursoX){
+
+void estudianteBecado::asignarCurso(objeto* cursoX){ // SE CAE
     listaCursos->agregarObjeto(cursoX);
 }
 

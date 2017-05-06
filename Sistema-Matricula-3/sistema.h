@@ -16,7 +16,7 @@
 #include"interfaz.h"
 #include"universidad.h"
 #include<Windows.h>
-
+#include"matricula.h"
 
 class sistema {
 public:
@@ -27,6 +27,7 @@ public:
 private:
     universidad *_universidad;
     interfaz *_interfaz;
+    matricula *_matricula;
     
 
 };

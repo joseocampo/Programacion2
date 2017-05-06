@@ -11,18 +11,19 @@
  * Created on 3 de mayo de 2017, 04:29 PM
  */
 
-#include"estudiante.h"
-#ifndef     ESTUDIANTENACIONAL_H
-#define ESTUDIANTENACIONAL_H
-
-class estudianteNacional :public estudiante{
-public:
-    estudianteNacional(string,string,string,string,string,string,float);
-    
-    virtual ~estudianteNacional();
-private:
-
-};
-
-#endif /* ESTUDIANTENACIONAL_H */
+//#include"estudiante.h"
+//#ifndef     ESTUDIANTENACIONAL_H
+//#define ESTUDIANTENACIONAL_H
+//
+//class estudianteNacional {
+//public:
+//    estudianteNacional(string,string,string,string,string,string,float);
+//    virtual void asignarCurso(objeto*);
+//   virtual double calcularPagoCreditos();
+//    virtual ~estudianteNacional();
+//
+//
+//};
+//
+//#endif /* ESTUDIANTENACIONAL_H */
 

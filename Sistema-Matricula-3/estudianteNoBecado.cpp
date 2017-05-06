@@ -14,10 +14,10 @@
 #include "estudianteNoBecado.h"
 
 estudianteNoBecado::estudianteNoBecado(string nombre,string ap1,string ap2,string carnet,string cedula,string nacion,float porcenBeca):
-estudiante( nombre, ap1, ap2, carnet, cedula, nacion, porcenBeca){}
+estudiante( nombre, ap1, ap2, carnet, cedula, nacion, porcenBeca){/*FIN DEL CONSTRUCTOR*/}
 
-double estudianteNoBecado::calcularPagoCreditos(){
-    double montoTotal = 0.0;
+long estudianteNoBecado::calcularPagoCreditos(){
+    long montoTotal = 0.0;
     
     iterador *iteradorEstudiante = listaCursos->obtenerIterador();
     curso *cursoAuxiliar = NULL;

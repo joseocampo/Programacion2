@@ -107,3 +107,5 @@ objeto* iteradorLista::proximoElemento() {
     cursor = cursor->siguiente();
     return obj;
 }
+
+

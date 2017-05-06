@@ -15,14 +15,14 @@
 #define ESTUDIANTENOBECADO_H
 const float PORCENTAJE_RECARGO = 0.40;
 #include"estudiante.h"
-class estudianteNoBecado :public estudianteExtranjero {
+class estudianteNoBecado : public estudiante {
 public:
     estudianteNoBecado(string,string,string,string,string,string,float);
-    virtual double calcularPagoCreditos();
+    virtual long calcularPagoCreditos();
     virtual ~estudianteNoBecado();
     virtual void asignarCurso(objeto*);
  
-private:
+
 
 };
 

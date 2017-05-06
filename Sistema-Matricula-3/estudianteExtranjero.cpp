@@ -11,14 +11,14 @@
  * Created on 3 de mayo de 2017, 04:42 PM
  */
 
-#include "estudianteExtranjero.h"
-
-estudianteExtranjero::estudianteExtranjero(string nombre,string ap1,string ap2,string carnet,string cedula,string nacion,float porcenBeca):
-estudiante( nombre, ap1, ap2, carnet, cedula, nacion, porcenBeca){}
-
-
-
-
-estudianteExtranjero::~estudianteExtranjero() {
-}
+//#include "estudianteExtranjero.h"
+//
+//estudianteExtranjero::estudianteExtranjero(string nombre,string ap1,string ap2,string carnet,string cedula,string nacion,float porcenBeca):
+//estudiante( nombre, ap1, ap2, carnet, cedula, nacion, porcenBeca){}
+//
+//
+//
+//
+//estudianteExtranjero::~estudianteExtranjero() {
+//}
 

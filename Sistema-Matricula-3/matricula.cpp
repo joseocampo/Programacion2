@@ -17,13 +17,13 @@ matricula::matricula() {
 }
 matricula::~matricula() {
 }
+
 void matricula::matricularEstudiante(curso* cursoAux, estudiante* estudianteAux, int numeroGrupo){
     coleccion *coleccionGrupos = cursoAux->obetenerColeccion();
     iterador * iteradorGrupos = coleccionGrupos->obtenerIterador();
     
     grupo * grupoAuxiliar = NULL;
-    
-    
+ 
     while(iteradorGrupos->masElementos()){
         grupoAuxiliar = (grupo*)iteradorGrupos->proximoElemento();
         if(grupoAuxiliar){
@@ -32,5 +32,26 @@ void matricula::matricularEstudiante(curso* cursoAux, estudiante* estudianteAux,
             }
         }
     }
+}
+
+long matricula::verMontoMatricula(curso* cursoAux,string cedula,int numGrupo){
+    coleccion *coleccionGrupos = cursoAux->obetenerColeccion();
+    iterador *iteradorGrupos = coleccionGrupos->obtenerIterador();
+    objeto* estudianteAux = NULL;
+    long montoMatricula = 0.0;
+    grupo* grupoAux = NULL;
+    while(iteradorGrupos->masElementos()){
+        grupoAux = (grupo*)iteradorGrupos->proximoElemento();
+        if(grupoAux){
+            
+            if(grupoAux->obtenerNumeroGrupo() == numGrupo){
+                estudianteAux = grupoAux->buscarEstudiantePorId(cedula);
+                if(estudianteAux){
+                    montoMatricula += ((estudiante*)estudianteAux)->calcularPagoCreditos();
+                }
+            }
+        }
+    }
+    return montoMatricula;
 }
 

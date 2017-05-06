@@ -28,8 +28,6 @@ public:
     virtual objeto* buscarEstudiantePorId(string);
     virtual objeto* buscarEstudiantePorCarnet(string);
     virtual int obtenerNumeroGrupo()const;
-    
-    // metodos david
     virtual void eliminarProfe();
     
     

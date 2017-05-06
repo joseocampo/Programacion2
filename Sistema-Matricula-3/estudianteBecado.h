@@ -16,13 +16,13 @@
 #include"estudiante.h"
 
 
-class estudianteBecado :public estudianteNacional {
+class estudianteBecado : public estudiante {
 public:
    estudianteBecado(string,string,string,string,string,string,float);
-   virtual double calcularPagoCreditos();
+   
    virtual ~estudianteBecado();
    virtual void asignarCurso(objeto*);
-   
+   virtual long calcularPagoCreditos();
    
 private:
 

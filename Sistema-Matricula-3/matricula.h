@@ -21,7 +21,7 @@ public:
     matricula();
     virtual ~matricula();
     virtual void matricularEstudiante(curso*,estudiante*,int);
-    virtual double pagoCreditos();
+    virtual long verMontoMatricula(curso*,string,int);
     
 private:
 

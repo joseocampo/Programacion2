@@ -12,14 +12,18 @@
  */
 
 #include "estudianteBecado.h"
+#include "estudianteNoBecado.h"
 #include "sistema.h"
 sistema::sistema() {
+    this->_matricula = new matricula();
     this->_interfaz = new interfaz();
+    
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
     cout<<_interfaz->desplegarMensajeBienvenida()<<endl<<endl;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
     this->_universidad = new universidad(_interfaz->solicitarNombreUniversidad());
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+    
 }
 
 void sistema::iniciarSistema(){
@@ -504,18 +508,12 @@ void sistema::iniciarSistema(){
             
             
             
-            objeto *e1 = new estudianteBecado("DIDIER","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",10);
+            objeto *e1 = new estudianteBecado("DIDIER","OCAMPO","MARTINEZ","152325","207330432","COSTARRICENSE",0.10);
             
-            cursoauxiliar->asignarEstudianteGrupo(e1,numeroGrupo);
+            _matricula->matricularEstudiante(cursoauxiliar,(estudiante*)e1,numeroGrupo);
+            ((estudianteBecado*)e1)->asignarCurso(cursoauxiliar);
             
-//            ((  estudianteBecado*)e1 )->
-//            
-//            objeto *X = cursoauxiliar->obtenerEstudiantePorId("20733000");
-//            
-//            if(X){
-//            cout<<( ((estudianteBecado*)X)->toString() );
-//            }else cout<<"NO FUNCA"<<endl;
-//            
+
    
             }else{
                 cout<<"LA ESCUELA QUE BUSCA NO EXISTE"<<endl;
@@ -638,13 +636,13 @@ void sistema::iniciarSistema(){
             estudianteAuxiliar = cursoauxiliar->obtenerEstudiantePorId(cedula);
             
             cout<<"EL MONTO A PAGAR DEL ESTUDIANTE: "<<((estudiante*)estudianteAuxiliar)->obtenerNombre();
-            cout<<" es "<<cursoauxiliar->pagoCreditos( ((estudiante*)estudianteAuxiliar)->obtenerNombre() );
+//            cout<<" es "<<cursoauxiliar->pagoCreditos( ((estudiante*)estudianteAuxiliar)->obtenerNombre() );
             
             do{
                 cout<<"INGRESE EL NUMERO DEL GRUPO EN QUE DESEA CALCULAR PAGOCREDITOS DE ESTUDIANTE: ";
                 cin>>numeroGrupo;
             }while(cursoauxiliar->grupoExistente(numeroGrupo) == false);
-            
+            cout<<"MONEY "<<_matricula->verMontoMatricula(cursoauxiliar,cedula,numeroGrupo);
             
              
    
