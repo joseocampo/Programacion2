@@ -8,12 +8,15 @@
       <itemPath>curso.h</itemPath>
       <itemPath>escuela.h</itemPath>
       <itemPath>estudiante.h</itemPath>
-      <itemPath>estudianteBecado.h</itemPath>
       <itemPath>estudianteExtranjero.h</itemPath>
       <itemPath>estudianteNacional.h</itemPath>
-      <itemPath>estudianteNoBecado.h</itemPath>
       <itemPath>grupo.h</itemPath>
       <itemPath>interfaz.h</itemPath>
+      <itemPath>interfazCurso.h</itemPath>
+      <itemPath>interfazEscuela.h</itemPath>
+      <itemPath>interfazProfesor.h</itemPath>
+      <itemPath>interfazSistema.h</itemPath>
+      <itemPath>interfazUniversidad.h</itemPath>
       <itemPath>iterador.h</itemPath>
       <itemPath>lista.h</itemPath>
       <itemPath>matricula.h</itemPath>
@@ -34,12 +37,15 @@
       <itemPath>curso.cpp</itemPath>
       <itemPath>escuela.cpp</itemPath>
       <itemPath>estudiante.cpp</itemPath>
-      <itemPath>estudianteBecado.cpp</itemPath>
       <itemPath>estudianteExtranjero.cpp</itemPath>
       <itemPath>estudianteNacional.cpp</itemPath>
-      <itemPath>estudianteNoBecado.cpp</itemPath>
       <itemPath>grupo.cpp</itemPath>
       <itemPath>interfaz.cpp</itemPath>
+      <itemPath>interfazCurso.cpp</itemPath>
+      <itemPath>interfazEscuela.cpp</itemPath>
+      <itemPath>interfazProfesor.cpp</itemPath>
+      <itemPath>interfazSistema.cpp</itemPath>
+      <itemPath>interfazUniversidad.cpp</itemPath>
       <itemPath>iterador.cpp</itemPath>
       <itemPath>lista.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -88,10 +94,6 @@
       </item>
       <item path="estudiante.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="estudianteBecado.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="estudianteBecado.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="estudianteExtranjero.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="estudianteExtranjero.h" ex="false" tool="3" flavor2="0">
@@ -100,10 +102,6 @@
       </item>
       <item path="estudianteNacional.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="estudianteNoBecado.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="estudianteNoBecado.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="grupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="grupo.h" ex="false" tool="3" flavor2="0">
@@ -111,6 +109,26 @@
       <item path="interfaz.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="interfaz.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="interfazCurso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="interfazCurso.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="interfazEscuela.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="interfazEscuela.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="interfazProfesor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="interfazProfesor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="interfazSistema.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="interfazSistema.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="interfazUniversidad.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="interfazUniversidad.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="iterador.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -183,10 +201,6 @@
       </item>
       <item path="estudiante.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="estudianteBecado.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="estudianteBecado.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="estudianteExtranjero.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="estudianteExtranjero.h" ex="false" tool="3" flavor2="0">
@@ -195,10 +209,6 @@
       </item>
       <item path="estudianteNacional.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="estudianteNoBecado.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="estudianteNoBecado.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="grupo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="grupo.h" ex="false" tool="3" flavor2="0">
@@ -206,6 +216,26 @@
       <item path="interfaz.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="interfaz.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="interfazCurso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="interfazCurso.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="interfazEscuela.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="interfazEscuela.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="interfazProfesor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="interfazProfesor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="interfazSistema.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="interfazSistema.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="interfazUniversidad.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="interfazUniversidad.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="iterador.cpp" ex="false" tool="1" flavor2="0">
       </item>

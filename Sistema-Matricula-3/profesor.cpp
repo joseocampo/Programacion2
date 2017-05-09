@@ -15,31 +15,80 @@
 #include "curso.h";
 
 
-profesor::profesor(string nombre, string id): nombre(nombre), id(id), listaCursos(new lista()) {
+profesor::profesor(string nombre, string id): _nombre(nombre), _cedula(id), listaCursos(new lista()) {
 }
 
+profesor::profesor(const profesor& copia){
+    _nombre = copia._nombre;
+    _cedula = copia._cedula;
+    
+    listaCursos = new lista();
+    coleccion *aux = copia.listaCursos;
+    objeto *cursoAux = NULL;
+    iterador *iteradorCursos = aux->obtenerIterador();
+    while(iteradorCursos->masElementos()){
+        cursoAux = new curso(  *((curso*)iteradorCursos->proximoElemento())  );
+        listaCursos->agregarObjeto(cursoAux);
+    }
+    delete iteradorCursos;
+    
+}
+profesor& profesor::operator =(const profesor& copia){
+    if(this != &copia ){
+        //liberamos espacio
+        iterador *ite = listaCursos->obtenerIterador();
+        while(ite->masElementos()){
+            delete ite->proximoElemento();
+        }
+        delete ite;
+        delete listaCursos;
+        //modificamos contenido
+        _nombre = copia._nombre;
+        _cedula = copia._cedula;
 
+        listaCursos = new lista();
+        coleccion *aux = copia.listaCursos;
+        objeto *cursoAux = NULL;
+        iterador *iteradorCursos = aux->obtenerIterador();
+        while(iteradorCursos->masElementos()){
+            cursoAux = new curso(  *((curso*)iteradorCursos->proximoElemento())  );
+            listaCursos->agregarObjeto(cursoAux);
+        }
+        delete iteradorCursos;
+        
+        
+    }
+    return *this;
+    
+}
 profesor::~profesor() {
+    iterador *ite = listaCursos->obtenerIterador();
+        while(ite->masElementos()){
+            delete ite->proximoElemento();
+        }
+        delete ite;
+        delete listaCursos;
+    
 }
 
 
 string profesor::toString() const {
 
 stringstream x;
-    x<<"Profesor: "<<nombre<<endl;
-    x<<"Id: "<<id<<endl<<endl;
+    x<<"Profesor: "<<_nombre<<endl;
+    x<<"Id: "<<_cedula<<endl<<endl;
     return x.str();
 
 
 }
 
-void profesor::asignarNombre(string n){nombre=n;}
+void profesor::asignarNombre(string n){_nombre=n;}
 
-string profesor::obtenerNombre(){return nombre;}
+string profesor::obtenerNombre(){return _nombre;}
 
-void profesor::asignarId(string i){id=i;}
+void profesor::asignarId(string i){_cedula=i;}
 
-string profesor::obtenerId(){return id;}
+string profesor::obtenerId(){return _cedula;}
 
 void profesor::asignarCurso(objeto *_curso){
 
@@ -100,7 +149,7 @@ void profesor::eliminarCurso(string _sigla){
 string profesor::verCursos() const{
     stringstream x;
     x<<"\n______________________________________________________\n";
-    x<<"\n\nCursos Asociados a "<<nombre<<endl<<endl;
+    x<<"\n\nCursos Asociados a "<<_nombre<<endl<<endl;
     x<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - "<<endl;
     iterador *ite = listaCursos->obtenerIterador();
  curso *cursoAuxiliar = NULL;

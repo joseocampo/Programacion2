@@ -24,6 +24,8 @@ using namespace std;
 class curso : public objeto{
 public:
     curso(string ="",string ="",int =0);
+    curso(const curso&);
+//    curso& operator=(const curso&);
     virtual ~curso();
     virtual void asignarNombre(string);
     virtual void asignarCreditos(int);

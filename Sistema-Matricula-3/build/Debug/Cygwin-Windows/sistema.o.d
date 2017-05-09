@@ -1,15 +1,30 @@
-build/Debug/Cygwin-Windows/sistema.o: sistema.cpp estudianteBecado.h \
- estudiante.h objeto.h curso.h lista.h coleccion.h iterador.h profesor.h \
- grupo.h vector.h estudianteNoBecado.h sistema.h interfaz.h universidad.h \
- escuela.h matricula.h
+build/Debug/Cygwin-Windows/sistema.o: sistema.cpp sistema.h \
+ interfazUniversidad.h interfaz.h interfazEscuela.h interfazCurso.h \
+ interfazProfesor.h interfazSistema.h universidad.h escuela.h curso.h \
+ objeto.h lista.h coleccion.h iterador.h profesor.h grupo.h vector.h \
+ matricula.h estudiante.h
 
-estudianteBecado.h:
+sistema.h:
 
-estudiante.h:
+interfazUniversidad.h:
 
-objeto.h:
+interfaz.h:
+
+interfazEscuela.h:
+
+interfazCurso.h:
+
+interfazProfesor.h:
+
+interfazSistema.h:
+
+universidad.h:
+
+escuela.h:
 
 curso.h:
+
+objeto.h:
 
 lista.h:
 
@@ -23,14 +38,6 @@ grupo.h:
 
 vector.h:
 
-estudianteNoBecado.h:
-
-sistema.h:
-
-interfaz.h:
-
-universidad.h:
-
-escuela.h:
-
 matricula.h:
+
+estudiante.h:

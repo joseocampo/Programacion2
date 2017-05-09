@@ -22,6 +22,8 @@ class curso;
 class profesor :public objeto{
 public:
     profesor(string = "", string = "");
+    profesor(const profesor&);
+    profesor& operator=(const profesor&);
     virtual ~profesor();
     virtual void asignarNombre(string);
     virtual string obtenerNombre();
@@ -33,8 +35,9 @@ public:
     virtual string toString() const;
     virtual void eliminarCurso(string);
 private:
-    string nombre;
-    string id;
+    string _nombre;
+    string _cedula;
+    
     coleccion* listaCursos;
 
 };

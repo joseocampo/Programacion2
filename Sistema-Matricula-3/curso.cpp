@@ -18,6 +18,20 @@
 curso::curso(string sigla,string nombre,int creditos):_sigla(sigla), _nombre(nombre),_creditos(creditos),
         listaGrupos(new lista()){ /*FIN DEL CONSTRUCTOR*/  }
 
+curso::curso(const curso& copia){
+    _nombre = copia._nombre;
+    _sigla = copia._sigla;
+    _creditos = copia._creditos;
+    listaGrupos = new lista();
+    coleccion * gruposAuxiliar = copia.listaGrupos;
+    
+    iterador *iteradorGrupos = gruposAuxiliar->obtenerIterador();
+    objeto *grupoAux = NULL;
+    while(iteradorGrupos->masElementos()){
+        
+    }
+}
+
 void curso::asignarNombre(string nombre){this->_nombre = nombre;}
 void curso::asignarCreditos(int numeroCreditos){this->_creditos = numeroCreditos;}
 

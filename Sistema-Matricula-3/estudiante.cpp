@@ -13,9 +13,9 @@
 
 #include "estudiante.h"
 
-estudiante::estudiante(string nombre,string ap1,string ap2,string carnet,string cedula,string nacion,float porcenBeca):
+estudiante::estudiante(string nombre,string ap1,string ap2,string carnet,string cedula,string nacion):
 _nombre(nombre),_apellido1(ap1),_apellido2(ap2),_carnet(carnet),_cedula(cedula),
-        _nacionalidad(nacion),_porcentajeBeca(porcenBeca),listaCursos(new lista()){/*FIN DEL CONSTRUCTOR */}
+_nacionalidad(nacion),listaCursos(new lista()){/*FIN DEL CONSTRUCTOR */}
     
     
     
@@ -45,7 +45,7 @@ void estudiante::asignarApellido2(string ap2){this->_apellido1 = ap2;}
 //string estudiante::obtenerApellido1()const{return this->_apellido1;}
 //string estudiante::obtenerApellido2()const{return this->_apellido2;}
 void estudiante::asignarNacionalidad(string nacionalidad){this->_nacionalidad = nacionalidad;}
-void estudiante::asignarPorcentajeBeca(float porcenBeca){this->_porcentajeBeca = porcenBeca;}
+
 
 
 
@@ -55,7 +55,6 @@ string estudiante::obtenerNombre()const{return this->_nombre;}
 string estudiante::obtenerCedula()const{return this->_cedula;}
 string estudiante::obtenerCarnet()const{return this->_carnet;}
 string estudiante::obtenerNacionalidad()const{return this->_nacionalidad;}
-float estudiante::obtenerPorcentajeBeca() const{return this->_porcentajeBeca;}
   
 
 

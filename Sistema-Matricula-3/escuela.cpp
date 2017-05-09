@@ -16,32 +16,77 @@ escuela::escuela(string nombre):_nombre(nombre),listaCursos(new lista()),listaPr
     
 }
 escuela::escuela(const escuela& copia){
-    _nombre = copia._nombre;
-    
-    listaCursos = new lista();
+    //AQUI HACEMOS LA COPIA DE LA LISTA DE CURSOS
+    objeto *cursoAux = NULL;
     coleccion *cursos = copia.listaCursos;
     
-    iterador *ite = cursos->obtenerIterador();
+    _nombre = copia._nombre;
+    listaCursos = new lista();
+    iterador *iteradorCursos = cursos->obtenerIterador();
     
-    while(ite->masElementos()){
-        curso *cursoAuxiliar = (curso*)ite->proximoElemento();
-        listaCursos->agregarObjeto(new curso(    )     );
+    while(iteradorCursos->masElementos()){
+        cursoAux = new curso(  * ((curso*)iteradorCursos->proximoElemento()) );
+        listaCursos->agregarObjeto( cursoAux );
         
     }
+    
+    //AQUI HACEMOS LA COPIA DE LA LISTA DE PROFESORES
+    
+    objeto *profesorAux = NULL;
+    coleccion *profesores = copia.listaProfesores;
+    
+    iterador *iteradorProfesores = profesores->obtenerIterador();
+    
+    while(iteradorProfesores->masElementos()){
+        profesorAux = new profesor(  *((profesor*)iteradorProfesores->proximoElemento())   );
+        listaProfesores->agregarObjeto(profesorAux);
+        
+    }
+   
+    delete iteradorCursos;
+    delete iteradorProfesores;
+    
     
 }
 
 escuela& escuela::operator =(const escuela& otra){
+    //VERIFICAR SI EL CONTENIDO DE LAS ESCUELAS ES DISTINTO
+   
+    
+    iterador *cursosLocales = listaCursos->obtenerIterador();
+    iterador *profesoresLocales = listaProfesores->obtenerIterador();
     if(this != &otra){
-        _nombre = otra._nombre;
-        listaCursos = new lista();
-
-        iterador *ite = otra.listaCursos->obtenerIterador();
-        while(ite->masElementos()){
-            curso *cursoAuxiliar = (curso*)ite->proximoElemento();
-//            listaCursos->agregarObjeto(new curso(cursoAuxiliar->obtenerNombre(),cursoAuxiliar->obtenerSigla()));
-
+        //LIBERAMOS EL ESPACIO DE LISTA CURSOS
+        while(cursosLocales->masElementos()){
+            delete cursosLocales->proximoElemento();
         }
+        //LIBERAMOS ESPACIO DE LISTA PROFESORES
+        while(profesoresLocales->masElementos()){
+            delete profesoresLocales->proximoElemento();
+        }
+        delete cursosLocales;
+        delete profesoresLocales;
+        
+        //AHORA MODIFICAMOS EL CONTENIDO DE CADA LISTA
+        coleccion *cursos = otra.listaCursos;
+        coleccion *profesores = otra.listaProfesores;
+        objeto *cursoAux = NULL;
+        objeto *profesorAux = NULL;
+        iterador *iteradorCursos = cursos->obtenerIterador();
+        iterador *iteradorProfesores = profesores->obtenerIterador();
+        while(iteradorCursos->masElementos()){
+            cursoAux = new curso(   *((curso*)iteradorCursos->proximoElemento())  );
+            listaCursos->agregarObjeto(cursoAux);
+        }
+        while(iteradorProfesores->masElementos()){
+            profesorAux = new profesor( *((profesor*)iteradorProfesores->proximoElemento()));
+            listaProfesores->agregarObjeto(profesorAux);
+        }
+        
+        delete iteradorCursos;
+        delete iteradorProfesores;
+        
+        
     }
     return *this;
     
@@ -49,7 +94,17 @@ escuela& escuela::operator =(const escuela& otra){
     
 }
 escuela::~escuela() {
-    delete listaCursos;
+    iterador *cursosLocales = listaCursos->obtenerIterador();
+    iterador *profesoresLocales = listaProfesores->obtenerIterador();
+     while(cursosLocales->masElementos()){
+            delete cursosLocales->proximoElemento();
+        }
+        //LIBERAMOS ESPACIO DE LISTA PROFESORES
+        while(profesoresLocales->masElementos()){
+            delete profesoresLocales->proximoElemento();
+        }
+        delete cursosLocales;
+        delete profesoresLocales;
 }
 
 string escuela::obtenerNombre() const{return this->_nombre;}
@@ -98,7 +153,7 @@ string escuela::verCursosSinDetalles() const{
     x<<listaCursos->toString()<<endl;
     return x.str();
 }
-//
+
 void escuela::asignarProfesor(string nombre, string id){
     objeto *_profesor = new profesor(nombre, id);
     listaProfesores->agregarObjeto(_profesor);

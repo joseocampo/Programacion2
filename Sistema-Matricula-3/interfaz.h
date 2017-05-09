@@ -23,21 +23,8 @@ public:
     
     interfaz();
     virtual ~interfaz();
-    string solicitarNombreUniversidad() const;
-    string solicitarNombreEscuela() const;
-    string solicitarTelefonoUniversidad() const;
-    string solicitarDireccionUniversidad() const;
-    string desplegarMensajeBienvenida() const;
-    string solicitarNombreCurso()const;
-    string solicitarSiglaCurso()const;
-    int solicitarCreditosCurso()const;
-    string solicitarNombreProfesor() const;
-    string solicitarIdProfesor() const;
-    int solicitarNumeroCurso()const;
-    int desplegarMenuPrincipal() const;
-    int leerint()const;
-private:
-
+    virtual string solicitarNombre() const = 0;
+    virtual int desplegarMenu() const = 0;
 };
 
 #endif /* INTERFAZ_H */

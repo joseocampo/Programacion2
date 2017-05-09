@@ -39,12 +39,15 @@ OBJECTFILES= \
 	${OBJECTDIR}/curso.o \
 	${OBJECTDIR}/escuela.o \
 	${OBJECTDIR}/estudiante.o \
-	${OBJECTDIR}/estudianteBecado.o \
 	${OBJECTDIR}/estudianteExtranjero.o \
 	${OBJECTDIR}/estudianteNacional.o \
-	${OBJECTDIR}/estudianteNoBecado.o \
 	${OBJECTDIR}/grupo.o \
 	${OBJECTDIR}/interfaz.o \
+	${OBJECTDIR}/interfazCurso.o \
+	${OBJECTDIR}/interfazEscuela.o \
+	${OBJECTDIR}/interfazProfesor.o \
+	${OBJECTDIR}/interfazSistema.o \
+	${OBJECTDIR}/interfazUniversidad.o \
 	${OBJECTDIR}/iterador.o \
 	${OBJECTDIR}/lista.o \
 	${OBJECTDIR}/main.o \
@@ -100,11 +103,6 @@ ${OBJECTDIR}/estudiante.o: estudiante.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/estudiante.o estudiante.cpp
 
-${OBJECTDIR}/estudianteBecado.o: estudianteBecado.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/estudianteBecado.o estudianteBecado.cpp
-
 ${OBJECTDIR}/estudianteExtranjero.o: estudianteExtranjero.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -115,11 +113,6 @@ ${OBJECTDIR}/estudianteNacional.o: estudianteNacional.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/estudianteNacional.o estudianteNacional.cpp
 
-${OBJECTDIR}/estudianteNoBecado.o: estudianteNoBecado.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/estudianteNoBecado.o estudianteNoBecado.cpp
-
 ${OBJECTDIR}/grupo.o: grupo.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -129,6 +122,31 @@ ${OBJECTDIR}/interfaz.o: interfaz.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/interfaz.o interfaz.cpp
+
+${OBJECTDIR}/interfazCurso.o: interfazCurso.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/interfazCurso.o interfazCurso.cpp
+
+${OBJECTDIR}/interfazEscuela.o: interfazEscuela.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/interfazEscuela.o interfazEscuela.cpp
+
+${OBJECTDIR}/interfazProfesor.o: interfazProfesor.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/interfazProfesor.o interfazProfesor.cpp
+
+${OBJECTDIR}/interfazSistema.o: interfazSistema.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/interfazSistema.o interfazSistema.cpp
+
+${OBJECTDIR}/interfazUniversidad.o: interfazUniversidad.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/interfazUniversidad.o interfazUniversidad.cpp
 
 ${OBJECTDIR}/iterador.o: iterador.cpp 
 	${MKDIR} -p ${OBJECTDIR}

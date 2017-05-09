@@ -18,7 +18,10 @@
 class grupo :public objeto{
 public:
     grupo(int);
+    grupo(const grupo&);
+//    grupo& operator=(const grupo&);
     virtual ~grupo();
+    
     virtual void agregarEstudiante(objeto*);
     virtual void asignarProfe(objeto*);
     virtual objeto* obtenerProfe() const;
@@ -26,7 +29,7 @@ public:
     virtual string toString()const;
     virtual string verGruposSinEstudiantes()const;
     virtual objeto* buscarEstudiantePorId(string);
-    virtual objeto* buscarEstudiantePorCarnet(string);
+//    virtual objeto* buscarEstudiantePorCarnet(string);
     virtual int obtenerNumeroGrupo()const;
     virtual void eliminarProfe();
     

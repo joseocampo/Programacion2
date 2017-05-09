@@ -21,43 +21,66 @@ universidad::universidad(string nombre,string telefono,string direccion):_nombre
 }
 universidad::universidad(const universidad& copia){
     
-     objeto *auxiliar = NULL;
-    
-     
+    objeto *escuelaAux = NULL;
      
     _nombre = copia._nombre;
     _direccion = copia._direccion;
     _telefono = copia._telefono;
     listaEscuelas = new lista();
     
-    coleccion *escuelas = copia.listaEscuelas; // ESTA LINEA DE CODIGO ES PARA EVITAR EL ENCADENAMIENTO
-    
+    coleccion *escuelas = copia.listaEscuelas; 
+    //recorremos la lista copia y agregar el contenido a la nueva lista local
     iterador *ite = escuelas->obtenerIterador();
     while(ite->masElementos()){
-        auxiliar = ite->proximoElemento();
-        listaEscuelas->agregarObjeto(new escuela(   *((escuela*)auxiliar)  )  );
+        escuelaAux = new escuela(  *((escuela*)ite->proximoElemento())  );
+        listaEscuelas->agregarObjeto(escuelaAux );
     }
-    //recorrer la lista copia y agregar el contenido a la nueva lsita
-    //crear escuela con el constructor de copia
+    
+    //eliminamos el puntero del iterador
     delete ite;
 }
 
 universidad& universidad::operator =(const universidad& otra){
+    
+    //verificamos que las universidades no tengan el mismo contenido
     if(this != &otra){
+        
+        //liberamos el espacio d memoria de cada nodo
+        iterador *iteradorLocal = listaEscuelas->obtenerIterador();
+        
+        while(iteradorLocal->masElementos()){
+            delete iteradorLocal->proximoElemento();
+            
+        }
+        delete iteradorLocal;
+        delete listaEscuelas;
+        
+        
+        
+        //ahora modificamos el contenido
         _nombre = otra._nombre;
         _direccion = otra._direccion;
         _telefono = otra._telefono;
         listaEscuelas = new lista();
-        iterador *ite = otra.listaEscuelas->obtenerIterador();
-        while(ite->masElementos()){
-            escuela *auxiliar = (escuela*)ite->proximoElemento();
-            otra.listaEscuelas->agregarObjeto(new escuela(auxiliar->obtenerNombre()));
+        
+        coleccion *escuelasAux = otra.listaEscuelas;
+        objeto *escuelaAuxiliar = NULL;
+        iterador *iteradorEscuelas = escuelasAux->obtenerIterador();
+        while(iteradorEscuelas->masElementos()){
+            escuelaAuxiliar= new escuela(  *((escuela*)iteradorEscuelas->proximoElemento())  );
+            listaEscuelas->agregarObjeto(escuelaAuxiliar);
         }
     }
+    //retornar la instancia local
     return *this;
 }
 
 universidad::~universidad() {
+    iterador *iteradorEscuelas = listaEscuelas->obtenerIterador();
+    while(iteradorEscuelas->masElementos()){
+        delete iteradorEscuelas->proximoElemento();
+    }
+    delete iteradorEscuelas;
     delete listaEscuelas;
 }
 void universidad::colocarDireccion(string direccion){this->_direccion = direccion;}

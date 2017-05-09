@@ -15,28 +15,23 @@
 #define ESTUDIANTE_H
 #include"objeto.h"
 #include"curso.h"
-class estudiante :public objeto{
+class estudiante :public objeto {
 public:
-    estudiante(string,string,string,string,string,string,float);
+    estudiante(string,string,string,string,string,string);
     virtual ~estudiante();
-    virtual long calcularPagoCreditos() = 0;
+    
+    
     virtual string toString()const ;
-    
-    virtual string obtenerNombre()const;
-
-    virtual string obtenerCedula()const;
-    virtual string obtenerCarnet()const;
-    virtual string obtenerNacionalidad()const;
-    virtual float obtenerPorcentajeBeca()const;
-    
     virtual void asignarNombre(string);
     virtual void asignarApellido1(string);
     virtual void asignarApellido2(string);
     virtual void asignarNacionalidad(string);
-    virtual void asignarPorcentajeBeca(float);
-    
     virtual void asignarCurso(objeto*) = 0;
-    
+    virtual long calcularPagoCreditos() = 0;
+    virtual string obtenerNombre()const;
+    virtual string obtenerCedula()const;
+    virtual string obtenerCarnet()const;
+    virtual string obtenerNacionalidad()const;
     
     
 //    virtual void asignarCedula(string);
@@ -51,7 +46,7 @@ protected:
     string _cedula;
     string _carnet;
     string _nacionalidad;
-    float _porcentajeBeca;
+    
     coleccion *listaCursos;
     
    

@@ -13,10 +13,30 @@
 
 #include "grupo.h"
 #include "coleccion.h"
-#include "estudiante.h"
+#include "estudianteNacional.h"
 
 grupo::grupo(int numGrupo):_numeroGrupo(numGrupo),_arreglo(new vector()){
+    
+    
+    
+    
+    
 }
+grupo::grupo(const grupo& copia){
+    _profesorGrupo = copia._profesorGrupo;
+    _numeroGrupo = copia._numeroGrupo;
+    _arreglo = new vector();
+    
+    coleccion *gruposAux = copia._arreglo;
+    iterador *iteradorGrupos = gruposAux->obtenerIterador();
+    objeto *estudianteAux = NULL;
+    while(iteradorGrupos->masElementos()){
+      
+    }
+}
+
+
+
 void grupo::agregarEstudiante(objeto* estudianteX){
     _arreglo->agregarObjeto(estudianteX);
      
@@ -73,20 +93,21 @@ objeto* grupo::buscarEstudiantePorId(string cedula){
     
 }
 
-objeto* grupo::buscarEstudiantePorCarnet(string carnet){
-    iterador *ite = _arreglo->obtenerIterador();
-    estudiante* estudianteAux = NULL;
-    
-    while(ite->masElementos()){
-        estudianteAux = (estudiante*)ite->proximoElemento();
-        if(estudianteAux){
-            if(estudianteAux->obtenerCarnet() == carnet){
-                return estudianteAux;
-            }
-        }
-   
-    }
-    return NULL;
-    
-}
+//objeto* grupo::buscarEstudiantePorCarnet(string carnet){
+//    iterador *ite = _arreglo->obtenerIterador();
+//    estudianteNacional* estudianteAux = NULL;
+//    
+//    while(ite->masElementos()){
+//        estudianteAux = (estudiante*)ite->proximoElemento();
+//        
+//        if(estudianteAux){
+//            if(estudianteAux->obtenerCarnet() == carnet){
+//                return estudianteAux;
+//            }
+//        }
+//   
+//    }
+//    return NULL;
+//    
+//}
 

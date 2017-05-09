@@ -20,9 +20,9 @@ class escuela : public objeto{
 public:
     
     escuela(string="");
-    virtual ~escuela();
     escuela(const escuela&);
     escuela& operator=(const escuela&);
+    virtual ~escuela();
     virtual string obtenerNombre() const;
     virtual string toString() const;
     virtual void asignarCurso(string,string,int);

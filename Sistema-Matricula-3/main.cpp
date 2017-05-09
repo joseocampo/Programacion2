@@ -13,7 +13,7 @@
 
 #include <cstdlib>
 #include"sistema.h"
-#include"estudianteBecado.h"
+
 #include "vector.h"
 using namespace std;
 #include<iostream>
@@ -88,8 +88,8 @@ int main(int argc, char** argv) {
 //    
 //    
     sistema *sistema1 = new sistema();
-    sistema1->iniciarSistema();
+    sistema1->iniciar();
     
-
+   
     return 0;
 }

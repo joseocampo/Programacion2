@@ -14,8 +14,7 @@
 #ifndef MATRICULA_H
 #define MATRICULA_H
 #include"curso.h"
-#include "estudianteBecado.h"
-#include "estudianteNoBecado.h"
+#include"estudiante.h"
 class matricula {
 public:
     matricula();

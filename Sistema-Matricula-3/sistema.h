@@ -13,7 +13,11 @@
 
 #ifndef SISTEMA_H
 #define SISTEMA_H
-#include"interfaz.h"
+#include"interfazUniversidad.h"
+#include"interfazEscuela.h"
+#include"interfazCurso.h"
+#include"interfazProfesor.h"
+#include"interfazSistema.h"
 #include"universidad.h"
 #include<Windows.h>
 #include"matricula.h"
@@ -22,11 +26,22 @@ class sistema {
 public:
     sistema();
     virtual ~sistema();
-    void iniciarSistema() ;
+//    virtual void iniciarSistema() ;
+    virtual void iniciar();
+//    virtual void menuPrincipal();
+    virtual void menuUniversidad();
+    virtual void menuEscuela();
+    virtual void menuCurso();
+//    virtual void menuProfesor();
 
 private:
     universidad *_universidad;
-    interfaz *_interfaz;
+    interfaz *_interfazSistema;
+    interfaz *_interfazUniversidad;
+    interfaz *_interfazEscuela;
+    interfaz *_interfazCurso;
+    interfaz *_interfazProfesor;
+    
     matricula *_matricula;
     
 
